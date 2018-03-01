@@ -18,6 +18,7 @@ import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { MaterielComponent } from './materiel/materiel.component';
+import { RhComponent } from './rh/rh.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MaterielComponent } from './materiel/materiel.component';
     NotificationsComponent,
     UpgradeComponent,
     MaterielComponent,
+    RhComponent,
 
   ],
   imports: [
