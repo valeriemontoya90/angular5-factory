@@ -13,6 +13,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { MaterielComponent } from './materiel/materiel.component';
 import { RhComponent } from './rh/rh.component';
+import {StagiaireComponent} from "./stagiaire/stagiaire.component";
 
 const routes: Routes =[
     { path: 'dashboard',      component: DashboardComponent },
@@ -24,7 +25,8 @@ const routes: Routes =[
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'materiel',     component: MaterielComponent },
-    { path: 'rh',     component: RhComponent },
+    { path: 'stagiaire',     component: RhComponent },
+    { path: 'stagiaire',     component: StagiaireComponent },
     { path: '',               redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 
