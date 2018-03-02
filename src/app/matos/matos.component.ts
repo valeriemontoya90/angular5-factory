@@ -32,6 +32,7 @@ export class MatosComponent implements OnInit {
     onDeleteOne(id: number): void {
         this.matosService.delete(id).subscribe(data => {
             console.log('this.salle = ' + data);
+            this.router.navigateByUrl('/salles');
         });
     }
 }

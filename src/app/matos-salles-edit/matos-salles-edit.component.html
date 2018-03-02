@@ -4,38 +4,38 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header" data-background-color="red">
-            <h4 class="title">Ajout d'une nouvelle salle</h4>
+            <h4 class="title">Edition de la salle {{salle.id}}</h4>
             <p class="category">fgfdgfdgfdgfgfdgf</p>
           </div>
           <div class="card-content table-responsive">
             <form [formGroup]="salleAddForm" novalidate (ngSubmit)="onSubmit()">
               <input type="hidden" formControlName="id">
               <div class="row">
-                <div class="form-group form-black label-floating is-empty">
+                <div class="form-group">
                   <label class="control-label">Code</label>
-                  <input type="text" class="form-control" formControlName="code">
+                  <input type="text" class="form-control" formControlName="code" value="{{salle.code}}">
                 </div>
               </div>
               <div class="row">
-                <div class="form-group form-black label-floating is-empty">
+                <div class="form-group">
                   <label class="control-label">Cout</label>
-                  <input type="number" class="form-control" formControlName="cout">
+                  <input type="number" class="form-control" formControlName="cout" value="{{salle.cout}}">
                 </div>
               </div>
               <div class="row">
-                <div class="form-group form-black label-floating is-empty">
+                <div class="form-group">
                   <label class="control-label">Disponibilite</label>
-                  <input type="text" class="form-control" formControlName="isDisponible">
+                  <input type="text" class="form-control" formControlName="isDisponible" value="{{salle.isDisponible}}">
                 </div>
               </div>
               <div class="row">
-                <div class="form-group form-black label-floating is-empty">
+                <div class="form-group">
                   <label class="control-label">Capacité</label>
-                  <input type="number" class="form-control" formControlName="capacite">
+                  <input type="number" class="form-control" formControlName="capacite" value="{{salle.capacite}}">
                 </div>
               </div>
               <div class="clearfix"></div>
-              <button type="submit" class="btn btn-info">Ajouter</button>
+              <button type="submit" class="btn btn-info">Sauvegarder</button>
             </form>
           </div>
         </div>
