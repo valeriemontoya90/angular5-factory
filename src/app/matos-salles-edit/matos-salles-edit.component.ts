@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../../../tp2/src/app/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatosService} from "../matos.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {Level} from "../../../../tp3/src/app/incident-form/incident-form.component";
 import {SalleModule} from "../matos/salle.module";
 
 @Component({
