@@ -1,0 +1,63 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Edition de la salle {{salle.id}}</h4>
+            <p class="category">fgfdgfdgfdgfgfdgf</p>
+          </div>
+          <div class="card-content table-responsive">
+            <form [formGroup]="salleAddForm" novalidate (ngSubmit)="onSubmit()">
+              <input type="hidden" formControlName="id">
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Nom</label>
+                  <input type="text" class="form-control" formControlName="code" value="{{stagiaire.nom}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Prenom</label>
+                  <input type="number" class="form-control" formControlName="cout" value="{{stagiaire.prenom}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Adresse</label>
+                  <input type="text" class="form-control" formControlName="isDisponible" value="{{stagiare.adresse}}">
+                </div>
+              </div>7
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Code Postal</label>
+                  <input type="text" class="form-control" formControlName="isDisponible" value="{{stagiare.codePostal}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Email</label>
+                  <input type="text" class="form-control" formControlName="isDisponible" value="{{stagiare.mail}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Cursus</label>
+                  <input type="text" class="form-control" formControlName="isDisponible" value="{{stagiare.cursusDeFormation}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Ordinateur</label>
+                  <input type="number" class="form-control" formControlName="capacite" value="{{stagiare.ordinateur}}">
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <button type="submit" class="btn btn-info">Sauvegarder</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

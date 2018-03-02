@@ -29,5 +29,11 @@ listStagiaire: any;
           {field: '', header: 'Actions'}
       ];
   }
+    onDeleteOne(id: number): void {
+        this.stagiaireService.delete(id).subscribe(data => {
+            console.log('this.stagiaire = ' + data);
+            this.router.navigateByUrl('/stagiaires');
+        });
+    }
 
 }

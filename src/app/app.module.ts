@@ -28,6 +28,9 @@ import { MatosSallesShowComponent } from './matos-salles-show/matos-salles-show.
 import {NgModule} from "@angular/core";
 import { StagiaireComponent } from './stagiaire/stagiaire.component';
 import {StagiaireService} from "./services/stagiaire.service";
+import { StagiaireAddComponent } from './stagiaire-add/stagiaire-add.component';
+import { StagiaireEditComponent } from './stagiaire-edit/stagiaire-edit.component';
+import { StagiaireShowComponent } from './stagiaire-show/stagiaire-show.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import {StagiaireService} from "./services/stagiaire.service";
     MatosSallesAddComponent,
     MatosSallesEditComponent,
     MatosSallesShowComponent,
-    StagiaireComponent
+    StagiaireComponent,
+    StagiaireAddComponent,
+    StagiaireEditComponent,
+    StagiaireShowComponent
 
   ],
   imports: [

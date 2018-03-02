@@ -11,6 +11,7 @@ import {MatosSallesEditComponent} from "../matos-salles-edit/matos-salles-edit.c
 import {MatosSallesShowComponent} from "../matos-salles-show/matos-salles-show.component";
 import {StagiaireModule} from "../stagiaire/stagiaire.module";
 import {StagiaireComponent} from "../stagiaire/stagiaire.component";
+import {StagiaireAddComponent} from "../stagiaire-add/stagiaire-add.component";
 
 const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -19,6 +20,9 @@ const routes: Routes = [
     {path: 'salles/show/:id', component: MatosSallesShowComponent},
     {path: 'salles/edit/:id', component: MatosSallesEditComponent},
     {path: 'stagiaires', component: StagiaireComponent},
+    {path: 'stagiaires/add', component: StagiaireAddComponent},
+    {path: 'stagiaires/show/:id', component: MatosSallesShowComponent},
+    {path: 'stagiaires/edit/:id', component: MatosSallesEditComponent}
 ]
 
 @NgModule({
