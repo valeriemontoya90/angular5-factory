@@ -1,3 +1,4 @@
 __MACOSX
 .idea/
 node_modules
+.vscode/
