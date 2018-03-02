@@ -1,0 +1,18 @@
+<p-table>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Vin</th>
+      <th>Year</th>
+      <th>Brand</th>
+      <th>Color</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-col>
+    <tr>
+      <td>{{col.vin}}</td>
+      <td>{{col.year}}</td>
+      <td>{{col.brand}}</td>
+      <td>{{col.color}}</td>
+    </tr>
+  </ng-template>
+</p-table>

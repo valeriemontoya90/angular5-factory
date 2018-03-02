@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
@@ -19,6 +19,9 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { MaterielComponent } from './materiel/materiel.component';
 import { RhComponent } from './rh/rh.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatosComponent } from './matos/matos.component';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { RhComponent } from './rh/rh.component';
     UpgradeComponent,
     MaterielComponent,
     RhComponent,
+    MatosComponent,
 
   ],
   imports: [
@@ -40,8 +44,10 @@ import { RhComponent } from './rh/rh.component';
     FormsModule,
     HttpModule,
     ComponentsModule,
-RouterModule,
-    AppRoutingModule
+    RouterModule,
+    AppRoutingModule,
+      TableModule,
+      BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
