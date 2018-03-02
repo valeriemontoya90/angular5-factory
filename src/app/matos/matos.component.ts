@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {MatosService} from "../matos.service";
 
 @Component({
@@ -12,7 +12,7 @@ export class MatosComponent implements OnInit {
     cols: any[];
     listMatos: any;
 
-    constructor(private route: ActivatedRoute, private matosService: MatosService) {}
+    constructor(private route: ActivatedRoute, private router: Router, private matosService: MatosService) {}
 
     ngOnInit() {
         this.matosService.list().subscribe(data => {
@@ -27,5 +27,11 @@ export class MatosComponent implements OnInit {
             {field: 'isDisponible', header: 'isDisponible'},
             {field: '', header: 'Actions'}
         ];
+    }
+
+    onDeleteOne(id: number): void {
+        this.matosService.delete(id).subscribe(data => {
+            console.log('this.salle = ' + data);
+        });
     }
 }

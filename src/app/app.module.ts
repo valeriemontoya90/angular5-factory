@@ -25,6 +25,7 @@ import {TableModule} from 'primeng/table';
 import {MatosService} from "./matos.service";
 import {HttpClientModule} from "@angular/common/http";
 import { MatosSallesAddComponent } from './matos-salles-add/matos-salles-add.component';
+import { MatosSallesEditComponent } from './matos-salles-edit/matos-salles-edit.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MatosSallesAddComponent } from './matos-salles-add/matos-salles-add.com
     RhComponent,
     MatosComponent,
     MatosSallesAddComponent,
+    MatosSallesEditComponent,
 
   ],
   imports: [
