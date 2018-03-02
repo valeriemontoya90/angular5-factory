@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app.routing';
@@ -26,6 +24,8 @@ import {MatosService} from "./matos.service";
 import {HttpClientModule} from "@angular/common/http";
 import { MatosSallesAddComponent } from './matos-salles-add/matos-salles-add.component';
 import { MatosSallesEditComponent } from './matos-salles-edit/matos-salles-edit.component';
+import { MatosSallesShowComponent } from './matos-salles-show/matos-salles-show.component';
+import {NgModule} from "@angular/core";
 
 @NgModule({
   declarations: [
@@ -43,6 +43,7 @@ import { MatosSallesEditComponent } from './matos-salles-edit/matos-salles-edit.
     MatosComponent,
     MatosSallesAddComponent,
     MatosSallesEditComponent,
+    MatosSallesShowComponent,
 
   ],
   imports: [
