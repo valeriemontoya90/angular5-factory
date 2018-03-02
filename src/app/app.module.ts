@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app.routing';
@@ -17,6 +15,17 @@ import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
+import { MaterielComponent } from './materiel/materiel.component';
+import { RhComponent } from './rh/rh.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatosComponent } from './matos/matos.component';
+import {TableModule} from 'primeng/table';
+import {MatosService} from "./matos.service";
+import {HttpClientModule} from "@angular/common/http";
+import { MatosSallesAddComponent } from './matos-salles-add/matos-salles-add.component';
+import { MatosSallesEditComponent } from './matos-salles-edit/matos-salles-edit.component';
+import { MatosSallesShowComponent } from './matos-salles-show/matos-salles-show.component';
+import {NgModule} from "@angular/core";
 
 @NgModule({
   declarations: [
@@ -29,17 +38,26 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    MaterielComponent,
+    RhComponent,
+    MatosComponent,
+    MatosSallesAddComponent,
+    MatosSallesEditComponent,
+    MatosSallesShowComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+      HttpClientModule,
+      ReactiveFormsModule,
     ComponentsModule,
-RouterModule,
-    AppRoutingModule
+    RouterModule,
+    AppRoutingModule,
+      TableModule,
+      BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [MatosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

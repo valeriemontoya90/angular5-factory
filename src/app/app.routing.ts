@@ -11,6 +11,8 @@ import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
+import { MaterielComponent } from './materiel/materiel.component';
+import { RhComponent } from './rh/rh.component';
 
 const routes: Routes =[
     { path: 'dashboard',      component: DashboardComponent },
@@ -21,6 +23,8 @@ const routes: Routes =[
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'materiel',     component: MaterielComponent },
+    { path: 'rh',     component: RhComponent },
     { path: '',               redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 
