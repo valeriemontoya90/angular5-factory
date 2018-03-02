@@ -1,0 +1,300 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Matériel</h4>
+                        <p class="category">Liste du matériel, quel que soit le type</p>
+
+                    </div>
+                    <button type="button" class="btn btn-warning">Tous le matériel</button>
+                    <button type="button" class="btn btn-default">Salles</button>
+                    <button type="button" class="btn btn-primary">Vidéo projecteur</button>
+                    <button type="button" class="btn btn-info">Ordinateur</button>
+
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ajoutModal" >Ajouter</button>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead class="text-danger">
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Coût</th>
+                                    <th>Disponible</th>
+                                    <th>Type de materiel</th>
+                                    <td>Actions</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr >
+                                    <td data-toggle="modal" data-target="#showModal">Dakota Rice</td>
+                                    <td data-toggle="modal" data-target="#showModal">Niger</td>
+                                    <td data-toggle="modal" data-target="#showModal">Oud-Turnhout</td>
+                                    <td data-toggle="modal" data-target="#showModal">Vidéo Proj</td>
+                                    <td>
+                                            <i data-toggle="modal" data-target="#editModal" class="material-icons">edit</i>
+                                            <i data-toggle="modal" data-target="#delModal" class="material-icons">delete</i>
+                                            <i data-toggle="modal" data-target="#showModal" class="material-icons">assignment</i>
+                                        </td>
+                                </tr>
+                                <tr>
+                                    <td>Minerva Hooper</td>
+                                    <td>Curaçao</td>
+                                    <td>Sinaai-Waas</td>
+                                    <td>Salle</td>
+                                    <td>
+                                        <i class="material-icons">edit</i>
+                                        <i class="material-icons">delete</i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Sage Rodriguez</td>
+                                    <td>Netherlands</td>
+                                    <td>Baileux</td>
+                                    <td>Ordinateur</td>
+                                    <td>
+                                            <i class="material-icons">edit</i>
+                                            <i class="material-icons">delete</i>
+                                        </td>
+                                </tr>
+                                <tr>
+                                    <td>Philip Chaney</td>
+                                    <td>Korea, South</td>
+                                    <td>Overland Park</td>
+                                    <td>Ordinateur</td>
+                                    <td>
+                                            <i class="material-icons">edit</i>
+                                            <i class="material-icons">delete</i>
+                                        </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <!-- Modal show detail -->
+      <div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="showModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="showModalLabel">Détail</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Code<br>
+             Cout<br>
+              Disponibilite<br>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Delete -->
+      <div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="delModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="delModalLabel">Supression</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                        Confirmer la supression de l'ordinateur AJC144 ?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+                  <button type="button" class="btn btn-primary">Oui</button>
+                </div>
+              </div>
+            </div>
+          </div>      
+
+      <!-- Modal édition-->
+      <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="editModalLabel">Edition</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                        <form>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Company (disabled)</label>
+                                            <input type="text" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Username</label>
+                                            <input type="text" class="form-control" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Email address</label>
+                                            <input type="email" class="form-control" >
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Fist Name</label>
+                                            <input type="text" class="form-control" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Last Name</label>
+                                            <input type="text" class="form-control" >
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Adress</label>
+                                            <input type="text" class="form-control" >
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">City</label>
+                                            <input type="text" class="form-control" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Country</label>
+                                            <input type="text" class="form-control" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Postal Code</label>
+                                            <input type="text" class="form-control" >
+                                        </div>
+                                    </div>
+                                </div>
+           
+                                <div class="clearfix"></div>
+                            </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-danger pull-right">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      <!-- Modal ajout-->
+      <div class="modal fade" id="ajoutModal" tabindex="-1" role="dialog" aria-labelledby="ajoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ajoutModalLabel">Ajout</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                        <form>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Company (disabled)</label>
+                                            <input type="text" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Username</label>
+                                            <input type="text" class="form-control" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Email address</label>
+                                            <input type="email" class="form-control" >
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Fist Name</label>
+                                            <input type="text" class="form-control" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Last Name</label>
+                                            <input type="text" class="form-control" >
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Adress</label>
+                                            <input type="text" class="form-control" >
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">City</label>
+                                            <input type="text" class="form-control" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Country</label>
+                                            <input type="text" class="form-control" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Postal Code</label>
+                                            <input type="text" class="form-control" >
+                                        </div>
+                                    </div>
+                                </div>
+           
+                                <div class="clearfix"></div>
+                            </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-danger pull-right">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>             
