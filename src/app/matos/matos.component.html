@@ -7,7 +7,7 @@
             <h4 class="title">Matériel</h4>
             <p class="category">Liste du matériel, quel que soit le type</p>
           </div>
-          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ajoutModal" >Ajouter</button>
+          <a [routerLink]="['/salles/add']"><button type="button" class="btn btn-info" data-toggle="modal" data-target="#ajoutModal" >Ajouter</button></a>
           <div class="card-content table-responsive">
             <p-table [value]="listMatos">
               <ng-template pTemplate="header">

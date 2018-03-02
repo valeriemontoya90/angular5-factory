@@ -9,10 +9,12 @@ import {IncidentFormComponent} from "../../../../tp3/src/app/incident-form/incid
 import {IncidentListComponent} from "../../../../tp3/src/app/incident-list/incident-list.component";
 import {MatosComponent} from "../matos/matos.component";
 import {MatosService} from "../matos.service";
+import {MatosSallesAddComponent} from "../matos-salles-add/matos-salles-add.component";
 
 const routes: Routes = [
     {path: '', redirectTo: 'salles', pathMatch: 'full'},
-    {path: 'salles', component: MatosComponent}
+    {path: 'salles', component: MatosComponent},
+    {path: 'salles/add', component: MatosSallesAddComponent}
 ]
 
 @NgModule({

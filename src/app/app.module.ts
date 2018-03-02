@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -24,6 +24,7 @@ import { MatosComponent } from './matos/matos.component';
 import {TableModule} from 'primeng/table';
 import {MatosService} from "./matos.service";
 import {HttpClientModule} from "@angular/common/http";
+import { MatosSallesAddComponent } from './matos-salles-add/matos-salles-add.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +40,14 @@ import {HttpClientModule} from "@angular/common/http";
     MaterielComponent,
     RhComponent,
     MatosComponent,
+    MatosSallesAddComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
       HttpClientModule,
+      ReactiveFormsModule,
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
