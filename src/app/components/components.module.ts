@@ -5,10 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import {IncidentFormComponent} from "../../../../tp3/src/app/incident-form/incident-form.component";
-import {IncidentListComponent} from "../../../../tp3/src/app/incident-list/incident-list.component";
 import {MatosComponent} from "../matos/matos.component";
-import {MatosService} from "../matos.service";
 import {MatosSallesAddComponent} from "../matos-salles-add/matos-salles-add.component";
 
 const routes: Routes = [
