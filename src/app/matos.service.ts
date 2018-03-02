@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {IncidentModule} from "../../../tp3/src/app/incident-list/incident.module";
 import {SalleModule} from "./matos/salle.module";
-import {User} from "../../../tp2/src/app/user/user.module";
-import {Incident} from "../../../ag5-primng-incident/incident/src/app/incident";
 
 @Injectable()
 export class MatosService {

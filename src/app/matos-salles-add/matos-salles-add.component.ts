@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {IncidentService} from "../../../../tp3/src/app/incident.service";
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Level} from "../../../../tp3/src/app/incident-form/incident-form.component";
