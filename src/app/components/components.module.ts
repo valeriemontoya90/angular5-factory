@@ -8,6 +8,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import {IncidentFormComponent} from "../../../../tp3/src/app/incident-form/incident-form.component";
 import {IncidentListComponent} from "../../../../tp3/src/app/incident-list/incident-list.component";
 import {MatosComponent} from "../matos/matos.component";
+import {MatosService} from "../matos.service";
 
 const routes: Routes = [
     {path: '', redirectTo: 'salles', pathMatch: 'full'},

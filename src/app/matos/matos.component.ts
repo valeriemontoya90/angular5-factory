@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {MatosService} from "../matos.service";
 
 @Component({
   selector: 'app-matos',
@@ -8,17 +10,21 @@ import { Component, OnInit } from '@angular/core';
 export class MatosComponent implements OnInit {
 
     cols: any[];
+    listMatos: any;
 
-    constructor() { }
+    constructor(private route: ActivatedRoute, private matosService: MatosService) {}
 
     ngOnInit() {
+        this.matosService.list().subscribe(data => {
+            this.listMatos = data;
+            console.log('listMatos = ' + this.listMatos);
+        });
 
         this.cols = [
-            { field: 'vin', header: 'Vin' },
-            { field: 'year', header: 'Year' },
-            { field: 'brand', header: 'Brand' },
-            { field: 'color', header: 'Color' }
+            {field: 'id', header: 'ID'},
+            {field: 'code', header: 'code'},
+            {field: 'cout', header: 'cout'},
+            {field: 'isDisponible', header: 'isDisponible'}
         ];
     }
-
 }

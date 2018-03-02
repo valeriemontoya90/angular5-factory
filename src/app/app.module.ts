@@ -22,6 +22,8 @@ import { RhComponent } from './rh/rh.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatosComponent } from './matos/matos.component';
 import {TableModule} from 'primeng/table';
+import {MatosService} from "./matos.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -42,14 +44,14 @@ import {TableModule} from 'primeng/table';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+      HttpClientModule,
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
       TableModule,
       BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [MatosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
