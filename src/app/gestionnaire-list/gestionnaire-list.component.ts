@@ -23,9 +23,9 @@ export class GestionnaireListComponent implements OnInit {
 
         this.cols = [
             {field: 'id', header: 'ID'},
-            {field: 'code', header: 'code'},
-            {field: 'cout', header: 'cout'},
-            {field: 'isDisponible', header: 'isDisponible'},
+            {field: 'nom', header: 'nom'},
+            {field: 'prenom', header: 'prenom'},
+            {field: 'adresse', header: 'adresse'},
             {field: '', header: 'Actions'}
         ];
     }
