@@ -22,6 +22,7 @@ import { GestionnaireListComponent } from './gestionnaire-list/gestionnaire-list
 import {GestionnaireService} from './services/gestionnaire.service';
 import { GestionnaireAddComponent } from './gestionnaire-add/gestionnaire-add.component';
 import { GestionnaireEditComponent } from './gestionnaire-edit/gestionnaire-edit.component';
+import { GestionnaireShowComponent } from './gestionnaire-show/gestionnaire-show.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { GestionnaireEditComponent } from './gestionnaire-edit/gestionnaire-edit
     MatosSallesShowComponent,
     GestionnaireListComponent,
     GestionnaireAddComponent,
-    GestionnaireEditComponent
+    GestionnaireEditComponent,
+    GestionnaireShowComponent
 
   ],
   imports: [

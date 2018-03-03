@@ -12,6 +12,7 @@ import {MatosSallesShowComponent} from "../matos-salles-show/matos-salles-show.c
 import {GestionnaireListComponent} from '../gestionnaire-list/gestionnaire-list.component';
 import {GestionnaireAddComponent} from '../gestionnaire-add/gestionnaire-add.component';
 import {GestionnaireEditComponent} from '../gestionnaire-edit/gestionnaire-edit.component';
+import {GestionnaireShowComponent} from '../gestionnaire-show/gestionnaire-show.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'gestionnaires', pathMatch: 'full'},
@@ -21,6 +22,7 @@ const routes: Routes = [
     {path: 'salles/edit/:id', component: MatosSallesEditComponent, pathMatch: 'full'},
     {path: 'gestionnaires', component: GestionnaireListComponent},
     {path: 'gestionnaires/add', component: GestionnaireAddComponent},
+    {path: 'gestionnaires/show/:id', component: GestionnaireShowComponent},
     {path: 'gestionnaires/edit/:id', component: GestionnaireEditComponent, pathMatch: 'full'},
 ]
 

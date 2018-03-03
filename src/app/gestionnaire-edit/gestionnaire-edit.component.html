@@ -5,7 +5,9 @@
         <div class="card">
           <div class="card-header" data-background-color="red">
             <h4 class="title">Edition du profil de {{gestionnaire.nom}} {{gestionnaire.prenom}}</h4>
-            <p class="category">Ceci est un formulaire pour éditer le profil d'un gestionnaire</p>
+            <p class="category">Retour <a [routerLink]="['/gestionnaires']" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">liste des gestionnaires</a>
+              > <a [routerLink]="['/gestionnaires/show', gestionnaire.id]" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">Détail de {{gestionnaire.nom}} {{gestionnaire.prenom}}</a>
+            </p>
           </div>
           <div class="card-content">
             <form [formGroup]="gestionnaireAddForm" novalidate (ngSubmit)="onSubmit()">
@@ -72,7 +74,7 @@
             <p class="card-content">
               Je suis un bon gestionnaire qui n'a peur de rien
             </p>
-            <a href="#pablo" class="btn btn-danger btn-round">Follow</a>
+            <a href="#pablo" class="btn btn-danger btn-round">Editer un nouveau CV</a>
           </div>
         </div>
       </div>
