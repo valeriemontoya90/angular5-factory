@@ -32,8 +32,8 @@ export class GestionnaireListComponent implements OnInit {
 
     onDeleteOne(id: number): void {
         this.gestionnaireService.delete(id).subscribe(data => {
-            console.log('this.salle = ' + data);
-            this.router.navigateByUrl('/salles');
+            console.log('gestionnaire = ' + data);
+            this.router.navigateByUrl('/gestionnaires');
         });
     }
 }
