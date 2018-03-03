@@ -4,10 +4,10 @@ import {RhModule} from './rh.module';
 export class GestionnaireMdule extends RhModule {
     constructor(public id: number,
                 public nom: string,
-                public prenom: number,
+                public prenom: string,
                 public adresse: string,
                 public codePostal: string,
-                public mail: number,
+                public mail: string,
                 public cursus: CursusModule[]) {
         super(id, nom, prenom, adresse, codePostal, mail);
     }

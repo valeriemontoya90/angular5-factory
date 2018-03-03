@@ -11,6 +11,7 @@ import {MatosSallesEditComponent} from "../matos-salles-edit/matos-salles-edit.c
 import {MatosSallesShowComponent} from "../matos-salles-show/matos-salles-show.component";
 import {GestionnaireListComponent} from '../gestionnaire-list/gestionnaire-list.component';
 import {GestionnaireAddComponent} from '../gestionnaire-add/gestionnaire-add.component';
+import {GestionnaireEditComponent} from '../gestionnaire-edit/gestionnaire-edit.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'gestionnaires', pathMatch: 'full'},
@@ -19,7 +20,8 @@ const routes: Routes = [
     {path: 'salles/show/:id', component: MatosSallesShowComponent},
     {path: 'salles/edit/:id', component: MatosSallesEditComponent, pathMatch: 'full'},
     {path: 'gestionnaires', component: GestionnaireListComponent},
-    {path: 'gestionnaires/add', component: GestionnaireAddComponent}
+    {path: 'gestionnaires/add', component: GestionnaireAddComponent},
+    {path: 'gestionnaires/edit/:id', component: GestionnaireEditComponent, pathMatch: 'full'},
 ]
 
 @NgModule({
