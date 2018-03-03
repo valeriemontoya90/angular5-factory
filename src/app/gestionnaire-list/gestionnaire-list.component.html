@@ -6,8 +6,7 @@
           <div class="card-header" data-background-color="red">
             <h4 class="title">Liste des gestionnaires</h4>
             <p class="category">Personne en charge de la création des plannings de formation</p>
-          </div>
-          <a [routerLink]="['/gestionnaires/add']"><button type="button" class="btn btn-info" data-toggle="modal" data-target="#ajoutModal" >Ajouter</button></a>
+          </div><br>
           <div class="card-content table-responsive">
             <p-table [value]="liste">
               <ng-template pTemplate="header">
@@ -31,7 +30,9 @@
                   </td>
                 </tr>
               </ng-template>
-            </p-table>
+            </p-table><br><br>
+              <a [routerLink]="['/gestionnaires/add']"><button type="submit" class="btn btn-danger pull-right">Ajouter</button></a>
+            <div class="clearfix"></div>
           </div>
         </div>
       </div>
