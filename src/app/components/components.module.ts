@@ -23,7 +23,7 @@ const routes: Routes = [
     {path: 'gestionnaires', component: GestionnaireListComponent},
     {path: 'gestionnaires/add', component: GestionnaireAddComponent},
     {path: 'gestionnaires/show/:id', component: GestionnaireShowComponent},
-    {path: 'gestionnaires/edit/:id', component: GestionnaireEditComponent, pathMatch: 'full'},
+    {path: 'gestionnaires/edit/:id', component: GestionnaireEditComponent, pathMatch: 'full'}
 ]
 
 @NgModule({

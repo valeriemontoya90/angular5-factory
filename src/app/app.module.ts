@@ -26,27 +26,26 @@ import { GestionnaireShowComponent } from './gestionnaire-show/gestionnaire-show
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MaterielComponent,
-    RhComponent,
-    MatosComponent,
-    MatosSallesAddComponent,
-    MatosSallesEditComponent,
-    MatosSallesShowComponent,
-    GestionnaireListComponent,
-    GestionnaireAddComponent,
-    GestionnaireEditComponent,
-    GestionnaireShowComponent
-
+      AppComponent,
+      MaterielComponent,
+      RhComponent,
+      MatosComponent,
+      MatosSallesAddComponent,
+      MatosSallesEditComponent,
+      MatosSallesShowComponent,
+      GestionnaireListComponent,
+      GestionnaireAddComponent,
+      GestionnaireEditComponent,
+      GestionnaireShowComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
+      BrowserModule,
+      FormsModule,
       HttpClientModule,
       ReactiveFormsModule,
-    ComponentsModule,
-    RouterModule,
-    AppRoutingModule,
+      ComponentsModule,
+      RouterModule,
+      AppRoutingModule,
       TableModule,
       BrowserAnimationsModule
   ],
