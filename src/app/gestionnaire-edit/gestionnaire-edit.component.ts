@@ -4,6 +4,7 @@ import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {GestionnaireService} from '../services/gestionnaire.service';
 import {GestionnaireMdule} from '../entities/gestionnaire.mdule';
 
+declare var $: any;
 @Component({
   selector: 'app-gestionnaire-edit',
   templateUrl: './gestionnaire-edit.component.html',
@@ -48,8 +49,26 @@ export class GestionnaireEditComponent implements OnInit {
     onSubmit(): void {
         console.log('this.salleAddForm.getRawValue() = ' + this.gestionnaireAddForm.getRawValue());
         this.gestionnaireService.update(this.gestionnaireAddForm.getRawValue()).subscribe(data => {
-            this.gestionnaire = data;
+            console.log('gestionnaire = ' + data);
+            this.showNotification('top','right');
             this.router.navigateByUrl('/gestionnaires');
+        },err => {
+            console.log('err = ' , err.message);
+            this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
+        })
+    }
+
+    showNotification(from, align, type="success", message="SUCCES - Les modifications ont bien été sauvegardées"){
+        $.notify({
+            icon: "notifications",
+            message: message
+        },{
+            type: type,
+            timer: 4000,
+            placement: {
+                from: from,
+                align: align
+            }
         });
     }
 }

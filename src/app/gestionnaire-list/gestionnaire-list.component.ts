@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 import {GestionnaireService} from '../services/gestionnaire.service';
-import * as Http from 'http';
-import {from} from 'rxjs/observable/from';
 
 declare var $: any;
 @Component({
@@ -40,11 +38,11 @@ export class GestionnaireListComponent implements OnInit {
             this.router.navigateByUrl('/gestionnaires');
         },err => {
             console.log('err = ' , err.message);
-            this.showNotification('top','right', 'danger', 'ECHEC - '+err.message);
+            this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
         })
     }
 
-    showNotification(from, align, type="success", message="SUCCES - La suppresion a fonctionné"){
+    showNotification(from, align, type="success", message="SUCCES - La suppresion a bien fonctionné"){
 
         const color = Math.floor((Math.random() * 4) + 1);
 

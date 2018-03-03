@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {MatosService} from '../matos.service';
 import {GestionnaireService} from '../services/gestionnaire.service';
 
+declare var $: any;
 @Component({
   selector: 'app-gestionnaire-add',
   templateUrl: './gestionnaire-add.component.html',
@@ -36,11 +36,28 @@ export class GestionnaireAddComponent implements OnInit {
     }
 
     onSubmit(): void {
+        console.log('this.salleAddForm.getRawValue() = ' + this.gestionnaireAddForm.getRawValue());
         this.gestionnaireService.add(this.gestionnaireAddForm.getRawValue()).subscribe(data => {
-            const gestionnaire = data;
-            console.log('this.gestionnaire = ' + gestionnaire);
+            console.log('gestionnaire = ' + data);
+            this.showNotification('top','right');
             this.router.navigateByUrl('/gestionnaires');
-        });
+        },err => {
+            console.log('err = ' , err.message);
+            this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
+        })
     }
 
+    showNotification(from, align, type="success", message="SUCCES - L'ajout a bien été effectué"){
+        $.notify({
+            icon: "notifications",
+            message: message
+        },{
+            type: type,
+            timer: 4000,
+            placement: {
+                from: from,
+                align: align
+            }
+        });
+    }
 }
