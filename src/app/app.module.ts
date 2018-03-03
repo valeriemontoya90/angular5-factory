@@ -18,6 +18,9 @@ import { MatosSallesAddComponent } from './matos-salles-add/matos-salles-add.com
 import { MatosSallesEditComponent } from './matos-salles-edit/matos-salles-edit.component';
 import { MatosSallesShowComponent } from './matos-salles-show/matos-salles-show.component';
 import {NgModule} from "@angular/core";
+import { GestionnaireListComponent } from './gestionnaire-list/gestionnaire-list.component';
+import {GestionnaireService} from './services/gestionnaire.service';
+import { GestionnaireAddComponent } from './gestionnaire-add/gestionnaire-add.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import {NgModule} from "@angular/core";
     MatosComponent,
     MatosSallesAddComponent,
     MatosSallesEditComponent,
-    MatosSallesShowComponent
+    MatosSallesShowComponent,
+    GestionnaireListComponent,
+    GestionnaireAddComponent
 
   ],
   imports: [
@@ -41,7 +46,10 @@ import {NgModule} from "@angular/core";
       TableModule,
       BrowserAnimationsModule
   ],
-  providers: [MatosService],
+  providers: [
+      MatosService,
+      GestionnaireService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
