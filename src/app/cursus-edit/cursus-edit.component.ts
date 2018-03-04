@@ -3,6 +3,8 @@ import {CursusModule} from '../entities/cursus.module';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CursusService} from '../services/cursus.service';
+import {FormationModule} from '../entities/formation.module';
+import {EventCalendar} from '../entities/eventCalendar.module';
 
 declare var $: any;
 @Component({
@@ -17,6 +19,7 @@ export class CursusEditComponent implements OnInit {
     cursusAddForm: FormGroup;
     colsFormation: any[];
     header: any;
+    events = [{'title' : '', 'start' : '', 'end' : ''}];
 
     constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private cursusService: CursusService) {
         this.cursusAddForm = new FormGroup({
@@ -44,6 +47,8 @@ export class CursusEditComponent implements OnInit {
                     'stagiaires': [this.cursus.stagiaires],
                     'formations': [this.cursus.formations]
                 });
+                this.getEventCursus();
+                this.getEventsFormations();
             });
         });
 
@@ -61,6 +66,36 @@ export class CursusEditComponent implements OnInit {
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
         };
+    }
+
+    encodeCursus(cursus: CursusModule): EventCalendar {
+        return {
+            title: cursus.titre,
+            start: cursus.dateDebut.toString(),
+            end: cursus.dateFin.toString(),
+            backgroundColor: '#1565C0',
+            borderColor: '#1565C0'
+        };
+    }
+
+    encodeFormations(formation: FormationModule): EventCalendar {
+        return {
+            title: formation.matiere.titre,
+            start: formation.dateDebut.toString(),
+            end: formation.dateFin.toString(),
+            backgroundColor: '#FF5722',
+            borderColor: '#FF5722'
+        };
+    }
+
+    getEventCursus(): void {
+        this.events.push(this.encodeCursus(this.cursus));
+    }
+
+    getEventsFormations(): void {
+        for(let formation of this.cursus.formations) {
+            this.events.push(this.encodeFormations(formation));
+        }
     }
 
     onSubmit(): void {
