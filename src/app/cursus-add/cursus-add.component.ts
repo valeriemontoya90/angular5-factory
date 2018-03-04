@@ -19,14 +19,18 @@ export class CursusAddComponent implements OnInit {
     constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private cursusService: CursusService, private eventService: EventService) {
         this.cursusAddForm = new FormGroup({
             id: new FormControl(),
-            titre: new FormControl()
+            titre: new FormControl(),
+            dateDebut: new FormControl(),
+            dateFin: new FormControl()
         });
     }
 
     ngOnInit() {
         this.cursusAddForm = this.fb.group({
             'id': [''],
-            'titre': ['']
+            'titre': [''],
+            'dateDebut': [''],
+            'dateFin': ['']
         });
 
         /*this.eventService.getEvents().subscribe(events => {

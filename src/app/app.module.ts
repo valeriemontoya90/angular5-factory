@@ -28,6 +28,8 @@ import {CursusService} from './services/cursus.service';
 import { CursusAddComponent } from './cursus-add/cursus-add.component';
 import {ScheduleModule} from 'primeng/schedule';
 import {EventService} from './services/event.service';
+import { CursusEditComponent } from './cursus-edit/cursus-edit.component';
+import { CursusShowComponent } from './cursus-show/cursus-show.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import {EventService} from './services/event.service';
       GestionnaireEditComponent,
       GestionnaireShowComponent,
       CursusListComponent,
-      CursusAddComponent
+      CursusAddComponent,
+      CursusEditComponent,
+      CursusShowComponent
   ],
   imports: [
       BrowserModule,

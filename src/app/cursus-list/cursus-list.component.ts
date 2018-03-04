@@ -23,16 +23,18 @@ export class CursusListComponent implements OnInit {
 
         this.cols = [
             {field: 'id', header: 'ID'},
-            {field: 'titre', header: 'titre'},
+            {field: 'titre', header: 'Titre'},
+            {field: 'dateDebut', header: 'Date de début'},
+            {field: 'dateFin', header: 'Date de fin'},
             {field: '', header: 'Actions'}
         ];
     }
 
     onDeleteOne(id: number): void {
         this.cursusService.delete(id).subscribe(data => {
-            console.log('gestionnaire = ' + data);
+            console.log('cursus = ' + data);
             this.showNotification('top','right');
-            this.router.navigateByUrl('/gestionnaires');
+            this.router.navigateByUrl('/cursus');
         },err => {
             console.log('err = ' , err.message);
             this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
