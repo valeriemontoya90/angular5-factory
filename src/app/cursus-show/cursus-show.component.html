@@ -5,7 +5,7 @@
         <div class="card">
           <div class="card-header" data-background-color="red">
             <h4 class="title">Détail du cursus {{cursus.titre}}</h4>
-            <p class="category">Ceci est le détail du cursus {{cursus.titre}}</p>
+            <p class="category">Retour <a [routerLink]="['/cursus']" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">liste des cursus</a></p>
           </div>
           <div class="card-content">
             <p></p>
@@ -35,6 +35,40 @@
     </div>
     <div class="row">
       <p-schedule [events]="events" [header]="header" defaultDate="2018-02-01" [eventLimit]="4" [editable]="true"></p-schedule>
+    </div>
+    <br><br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Liste des formations liées au cursus  {{cursus.titre}}</h4>
+            <p class="category">Retour <a [routerLink]="['/cursus/edit', cursus.id]" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">Cliquez ici pour aller dans la page d'édition</a></p>
+          </div><br>
+          <div class="card-content table-responsive">
+            <p-table [value]="cursus.formations">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th *ngFor="let col of colsFormation" [pSortableColumn]="col.field">
+                    {{col.header}}
+                    <p-sortIcon [field]="col.field"></p-sortIcon>
+                  </th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-item>
+                <tr>
+                  <td>{{item.id}}</td>
+                  <td>{{item.matiere.titre}}</td>
+                  <td>{{item.dateDebut}}</td>
+                  <td>{{item.dateFin}}</td>
+                  <td>{{item.formateur.nom}} {{item.formateur.prenom}}</td>
+                </tr>
+              </ng-template>
+            </p-table><br><br>
+            <a [routerLink]="['/cursus/add']"><button type="submit" class="btn btn-danger pull-right">Ajouter</button></a>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

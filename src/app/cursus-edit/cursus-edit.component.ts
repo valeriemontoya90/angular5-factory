@@ -15,6 +15,8 @@ export class CursusEditComponent implements OnInit {
     cursus = new CursusModule(-1, "", null, null,  null, null);
 
     cursusAddForm: FormGroup;
+    colsFormation: any[];
+    header: any;
 
     constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private cursusService: CursusService) {
         this.cursusAddForm = new FormGroup({
@@ -44,6 +46,21 @@ export class CursusEditComponent implements OnInit {
                 });
             });
         });
+
+        this.colsFormation = [
+            {field: 'id', header: 'ID'},
+            {field: 'matiere', header: 'Matière'},
+            {field: 'dateDebut', header: 'Date de début'},
+            {field: 'dateFin', header: 'Date de fin'},
+            {field: 'formateur', header: 'Formateur'},
+            {field: '', header: 'Actions'}
+        ];
+
+        this.header = {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        };
     }
 
     onSubmit(): void {

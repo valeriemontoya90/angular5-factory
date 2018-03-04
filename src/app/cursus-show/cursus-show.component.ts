@@ -13,6 +13,8 @@ declare var $: any;
 export class CursusShowComponent implements OnInit {
 
     cursus = new CursusModule(-1, "", null, null,  null, null);
+    colsFormation: any[];
+    header: any;
 
     constructor(private route: ActivatedRoute, private router: Router, private cursusService: CursusService) {
     }
@@ -26,5 +28,19 @@ export class CursusShowComponent implements OnInit {
                 console.log('cursus detail = ' + this.cursus);
             });
         });
+
+        this.colsFormation = [
+            {field: 'id', header: 'ID'},
+            {field: 'matiere', header: 'Matière'},
+            {field: 'dateDebut', header: 'Date de début'},
+            {field: 'dateFin', header: 'Date de fin'},
+            {field: 'formateur', header: 'Formateur'}
+        ];
+
+        this.header = {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        };
     }
 }
