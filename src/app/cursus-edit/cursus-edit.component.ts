@@ -6,6 +6,7 @@ import {CursusService} from '../services/cursus.service';
 import {FormationModule} from '../entities/formation.module';
 import {EventCalendar} from '../entities/eventCalendar.module';
 import {FormateurService} from '../services/formateur.service';
+import {MatiereService} from '../services/matiere.service';
 
 declare var $: any;
 @Component({
@@ -20,12 +21,15 @@ export class CursusEditComponent implements OnInit {
     cursusAddForm: FormGroup;
     colsFormation: any[];
     headerScheduler: any;
-    eventScheduler = [{'title' : '', 'start' : '', 'end' : ''}];
+    eventsScheduler = [{'title' : '', 'start' : '', 'end' : ''}];
+    formationAddForm: FormGroup;
     listFormateursAvailable: any[];
     listFormateursSelected: any[];
+    listMatieres: {};
+    formationSelected: any;
 
     constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private cursusService: CursusService,
-                private formateurService: FormateurService) {
+                private formateurService: FormateurService, private matiereService: MatiereService) {
         this.cursusAddForm = new FormGroup({
             id: new FormControl(),
             titre: new FormControl(),
@@ -33,6 +37,13 @@ export class CursusEditComponent implements OnInit {
             dateFin: new FormControl(),
             stagiaires: new FormControl(),
             formations: new FormControl()
+        });
+        this.formationAddForm = new FormGroup({
+            id: new FormControl(),
+            dateDebut: new FormControl(),
+            dateFin: new FormControl(),
+            listMatieres: new FormControl(),
+            formateur: new FormControl()
         });
     }
 
@@ -86,8 +97,8 @@ export class CursusEditComponent implements OnInit {
             title: cursus.titre,
             start: cursus.dateDebut.toString(),
             end: cursus.dateFin.toString(),
-            backgroundColor: '#1565C0',
-            borderColor: '#1565C0'
+            backgroundColor: '#80D8FF',
+            borderColor: '#80D8FF'
         };
     }
 
@@ -102,12 +113,12 @@ export class CursusEditComponent implements OnInit {
     }
 
     getEventCursus(): void {
-        this.eventScheduler.push(this.encodeCursus(this.cursus));
+        this.eventsScheduler.push(this.encodeCursus(this.cursus));
     }
 
     getEventsFormations(): void {
         for(let formation of this.cursus.formations) {
-            this.eventScheduler.push(this.encodeFormations(formation));
+            this.eventsScheduler.push(this.encodeFormations(formation));
         }
     }
 
@@ -121,6 +132,29 @@ export class CursusEditComponent implements OnInit {
             console.log('err = ' , err.message);
             this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
         })
+    }
+
+    editFormation(formation): void {
+        $(".pickListFactory").show();
+        this.formationSelected = formation;
+        this.formationAddForm = this.fb.group({
+            'id': [formation.id],
+            'dateDebut': [formation.dateDebut],
+            'dateFin': [formation.dateFin],
+            'listMatieres': this.getListMatieres(),
+            'formateur': [formation.formateur]
+        });
+    }
+
+    getListMatieres(): void {
+        this.matiereService.list().subscribe(data => {
+            this.listMatieres = data;
+            console.log('listMatieres = ' + this.listMatieres);
+        })
+    }
+
+    closePickList(): void {
+        $(".pickListFactory").hide();
     }
 
     showNotification(from, align, type="success", message="SUCCES - Les modifications ont bien été sauvegardées"){

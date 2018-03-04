@@ -50,19 +50,19 @@
             <p class="card-content">
               Je suis un bon gestionnaire qui n'a peur de rien
             </p>
-            <a class="btn btn-info btn-round">Modifier le cahier des charges</a>
+            <a class="btn btn-round" style="background-color: #1565C0">Modifier le cahier des charges</a>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
-      <p-schedule [events]="events" [header]="header" defaultDate="2018-02-01" [editable]="true"></p-schedule>
+      <p-schedule [events]="eventsScheduler" [header]="headerScheduler" defaultDate="2018-02-01" [editable]="true"></p-schedule>
     </div>
     <br><br>
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-header" data-background-color="red">
+          <div class="card-header" data-background-color="orange">
             <h4 class="title">Liste des formations</h4>
             <p class="category">Vous pouvez supprimer des formations</p>
           </div><br>
@@ -85,7 +85,7 @@
                   <td>{{item.formateur.nom}} {{item.formateur.prenom}}</td>
                   <td>
                       <div class="col-md-6">
-                          <a id="showPickListFormateursToMatiere"><i class="material-icons">edit</i></a>
+                          <a (click)="editFormation(item)"><i class="material-icons">edit</i></a>
                       </div>
                       <div class="col-md-6">
                           <a (click)="onDeleteOne(item.id)"><i class="material-icons">delete</i></a>
@@ -94,22 +94,59 @@
                 </tr>
               </ng-template>
             </p-table><br>
+              <button type="submit" class="btn btn-warning pull-right">Ajouter une nouvelle formation</button>
             <div class="clearfix"></div>
           </div>
         </div>
       </div>
     </div>
     <br><br>
-    <div class="row">
-      <p-pickList sourceHeader="Formateurs disponibles" targetHeader="Formateurs sélectionnés" [source]="listFormateursAvailable"
-                  [target]="listFormateursSelected" filterBy="nom" metaKeySelection="false" dragdrop="true" [responsive]="true">
-        <ng-template let-formateur pTemplate="item">
-          <div class="ui-helper-clearfix">
-              <img src="assets/img/faces/marc.jpg" style="display:inline-block;margin:2px 0 2px 2px" width="48">
-              <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{formateur.nom}} - {{formateur.prenom}}</div>
-          </div>
-        </ng-template>
-      </p-pickList>
+    <div  *ngIf="formationSelected!=null" class="row pickListFactory" style="display: none;">
+        <div class="card">
+            <div class="card-header" data-background-color="orange">
+                <h4 class="title">Edition de la formation --> {{formationSelected.matiere.titre}} qui a lieu du {{formationSelected.dateDebut}} au {{formationSelected.dateFin}}
+                avec {{formationSelected.formateur.nom}} {{formationSelected.formateur.prenom}} <--</h4>
+            </div>
+            <div class="card-content">
+                <form [formGroup]="formationAddForm" novalidate (ngSubmit)="onSubmit()">
+                  <input type="hidden" formControlName="id">
+                  <div class="row">
+                      <div class="form-group">
+                          <span class="control-label">Matière initiale <strong>{{formationSelected.matiere.titre}} - {{formationSelected.matiere.duree}} jours</strong></span><br>
+                          <select class="form-control" formControlName="listMatieres" style="width: 100%;">
+                              <option *ngFor="let t of listMatieres" [value]="t.id">{{t.titre}} ({{t.duree}})</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="form-group">
+                          <label class="control-label">Date de début du cursus</label>
+                          <input type="date" class="form-control" formControlName="dateDebut">
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="form-group">
+                          <label class="control-label">Date de fin du cursus</label>
+                          <input type="date" class="form-control" formControlName="dateFin">
+                      </div>
+                  </div>
+                    <br>
+                  <p-pickList sourceHeader="Formateurs disponibles" targetHeader="Le formateur sélectionné" [source]="listFormateursAvailable"
+                              [target]="listFormateursSelected" filterBy="nom" metaKeySelection="false" dragdrop="true" [responsive]="true">
+                      <ng-template let-formateur pTemplate="item">
+                          <div class="ui-helper-clearfix">
+                              <img src="assets/img/faces/marc.jpg" style="display:inline-block;margin:2px 0 2px 2px" width="48">
+                              <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{formateur.nom}} - {{formateur.prenom}}</div>
+                          </div>
+                      </ng-template>
+                  </p-pickList>
+                    <br>
+                    <button type="submit" class="btn btn-warning pull-right">Sauvegarder</button>
+                    <button type="button" class="btn btn-default pull-right" (click)="closePickList()">Annuler</button>
+                  <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
     </div>
   </div>
 </div>

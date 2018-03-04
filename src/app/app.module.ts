@@ -32,6 +32,7 @@ import { CursusEditComponent } from './cursus-edit/cursus-edit.component';
 import { CursusShowComponent } from './cursus-show/cursus-show.component';
 import {PickListModule} from 'primeng/primeng';
 import {FormateurService} from './services/formateur.service';
+import {MatiereService} from './services/matiere.service';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import {FormateurService} from './services/formateur.service';
       GestionnaireService,
       CursusService,
       EventService,
-      FormateurService
+      FormateurService,
+      MatiereService
   ],
   bootstrap: [AppComponent]
 })
