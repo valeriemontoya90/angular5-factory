@@ -25,6 +25,7 @@ import { GestionnaireShowComponent } from './gestionnaire-show/gestionnaire-show
 import { CursusListComponent } from './cursus-list/cursus-list.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CursusService} from './services/cursus.service';
+import { CursusAddComponent } from './cursus-add/cursus-add.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {CursusService} from './services/cursus.service';
       GestionnaireAddComponent,
       GestionnaireEditComponent,
       GestionnaireShowComponent,
-      CursusListComponent
+      CursusListComponent,
+      CursusAddComponent
   ],
   imports: [
       BrowserModule,

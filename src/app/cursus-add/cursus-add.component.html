@@ -1,0 +1,56 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Ajout d'un nouveau cursus</h4>
+            <p class="category">Ceci est un formulaire pour ajouter un nouveau cursus</p>
+          </div>
+          <div class="card-content">
+            <form [formGroup]="gestionnaireAddForm" novalidate (ngSubmit)="onSubmit()">
+              <input type="hidden" formControlName="id">
+              <div class="row">
+                <div class="form-group form-black label-floating is-empty">
+                  <label class="control-label">Titre</label>
+                  <input type="text" class="form-control" formControlName="nom">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>About Me</label>
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                      <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-danger pull-right">Ajouter un cursus</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <a href="#pablo">
+              <img class="img" src="../assets/img/logos/open.jpg" />
+            </a>
+          </div>
+          <div class="content">
+            <h6 class="category text-gray">CEO / Co-Founder</h6>
+            <h4 class="card-title">Alec Thompson</h4>
+            <p class="card-content">
+              Je suis un bon gestionnaire qui n'a peur de rien
+            </p>
+            <a href="#pablo" class="btn btn-danger btn-round">Importer le cahier des charges</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
