@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {CursusService} from '../services/cursus.service';
 import {FormationModule} from '../entities/formation.module';
 import {EventCalendar} from '../entities/eventCalendar.module';
+import {FormateurService} from '../services/formateur.service';
 
 declare var $: any;
 @Component({
@@ -18,10 +19,13 @@ export class CursusEditComponent implements OnInit {
 
     cursusAddForm: FormGroup;
     colsFormation: any[];
-    header: any;
-    events = [{'title' : '', 'start' : '', 'end' : ''}];
+    headerScheduler: any;
+    eventScheduler = [{'title' : '', 'start' : '', 'end' : ''}];
+    listFormateursAvailable: any[];
+    listFormateursSelected: any[];
 
-    constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private cursusService: CursusService) {
+    constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private cursusService: CursusService,
+                private formateurService: FormateurService) {
         this.cursusAddForm = new FormGroup({
             id: new FormControl(),
             titre: new FormControl(),
@@ -49,6 +53,8 @@ export class CursusEditComponent implements OnInit {
                 });
                 this.getEventCursus();
                 this.getEventsFormations();
+                this.getListFormateurs();
+                this.listFormateursSelected = [];
             });
         });
 
@@ -61,11 +67,18 @@ export class CursusEditComponent implements OnInit {
             {field: '', header: 'Actions'}
         ];
 
-        this.header = {
+        this.headerScheduler = {
             left: 'prev,next today',
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
         };
+    }
+
+    getListFormateurs(): void{
+        this.formateurService.list().subscribe(data => {
+            this.listFormateursAvailable = data;
+            console.log('listFormateursAvailable = ' + this.listFormateursAvailable);
+        })
     }
 
     encodeCursus(cursus: CursusModule): EventCalendar {
@@ -89,19 +102,19 @@ export class CursusEditComponent implements OnInit {
     }
 
     getEventCursus(): void {
-        this.events.push(this.encodeCursus(this.cursus));
+        this.eventScheduler.push(this.encodeCursus(this.cursus));
     }
 
     getEventsFormations(): void {
         for(let formation of this.cursus.formations) {
-            this.events.push(this.encodeFormations(formation));
+            this.eventScheduler.push(this.encodeFormations(formation));
         }
     }
 
     onSubmit(): void {
-        console.log('this.salleAddForm.getRawValue() = ' + this.cursusAddForm.getRawValue());
+        console.log('this.cursusAddForm.getRawValue() = ' + this.cursusAddForm.getRawValue());
         this.cursusService.update(this.cursusAddForm.getRawValue()).subscribe(data => {
-            console.log('gestionnaire = ' + data);
+            console.log('cursus = ' + data);
             this.showNotification('top','right');
             this.router.navigateByUrl('/gestionnaires');
         },err => {

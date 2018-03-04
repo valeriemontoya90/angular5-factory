@@ -31,7 +31,7 @@ const routes: Routes = [
     {path: 'cursus', component: CursusListComponent},
     {path: 'cursus/add', component: CursusAddComponent},
     {path: 'cursus/edit/:id', component: CursusEditComponent, pathMatch: 'full'},
-    {path: 'cursus/show/:id', component: CursusShowComponent},
+    {path: 'cursus/show/:id', component: CursusShowComponent}
 ]
 
 @NgModule({

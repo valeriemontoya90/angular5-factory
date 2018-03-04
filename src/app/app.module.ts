@@ -30,6 +30,8 @@ import {ScheduleModule} from 'primeng/schedule';
 import {EventService} from './services/event.service';
 import { CursusEditComponent } from './cursus-edit/cursus-edit.component';
 import { CursusShowComponent } from './cursus-show/cursus-show.component';
+import {PickListModule} from 'primeng/primeng';
+import {FormateurService} from './services/formateur.service';
 
 @NgModule({
   declarations: [
@@ -59,13 +61,15 @@ import { CursusShowComponent } from './cursus-show/cursus-show.component';
       AppRoutingModule,
       TableModule,
       BrowserAnimationsModule,
-      ScheduleModule
+      ScheduleModule,
+      PickListModule
   ],
   providers: [
       MatosService,
       GestionnaireService,
       CursusService,
-      EventService
+      EventService,
+      FormateurService
   ],
   bootstrap: [AppComponent]
 })

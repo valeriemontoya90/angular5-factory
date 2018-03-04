@@ -13,8 +13,7 @@ export class FormateurModule extends RhModule {
                 public mail: string,
                 public cursus: CursusModule[],
                 public disponibilites: DisponibiliteModule[],
-                public competences: CompetenceModule[],
-                public formations: FormationModule[]) {
+                public competences: CompetenceModule[]) {
         super(id, nom, prenom, adresse, codePostal, mail);
     }
 }
