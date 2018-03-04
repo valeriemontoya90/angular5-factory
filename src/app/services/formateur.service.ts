@@ -13,6 +13,10 @@ export class FormateurService {
         return this.http.get('http://localhost:8080/factory/formateurs');
     }
 
+    listAllByMatiereId(id: number): Observable<any> {
+        return this.http.get('http://localhost:8080/factory/formateurs/matiere/' + id);
+    }
+
     getOne(id: number): Observable<any> {
         return this.http.get('http://localhost:8080/factory/formateurs/' + id);
     }

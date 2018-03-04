@@ -7,6 +7,7 @@ import {FormationModule} from '../entities/formation.module';
 import {EventCalendar} from '../entities/eventCalendar.module';
 import {FormateurService} from '../services/formateur.service';
 import {MatiereService} from '../services/matiere.service';
+import {FormateurModule} from '../entities/formateur.module';
 
 declare var $: any;
 @Component({
@@ -64,7 +65,6 @@ export class CursusEditComponent implements OnInit {
                 });
                 this.getEventCursus();
                 this.getEventsFormations();
-                this.getListFormateurs();
                 this.listFormateursSelected = [];
             });
         });
@@ -83,13 +83,6 @@ export class CursusEditComponent implements OnInit {
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
         };
-    }
-
-    getListFormateurs(): void{
-        this.formateurService.list().subscribe(data => {
-            this.listFormateursAvailable = data;
-            console.log('listFormateursAvailable = ' + this.listFormateursAvailable);
-        })
     }
 
     encodeCursus(cursus: CursusModule): EventCalendar {
@@ -136,6 +129,7 @@ export class CursusEditComponent implements OnInit {
 
     editFormation(formation): void {
         $(".pickListFactory").show();
+        $(".pickListFactory").show();
         this.formationSelected = formation;
         this.formationAddForm = this.fb.group({
             'id': [formation.id],
@@ -144,6 +138,15 @@ export class CursusEditComponent implements OnInit {
             'listMatieres': this.getListMatieres(),
             'formateur': [formation.formateur]
         });
+        this.getListFormateurs(this.formationSelected.matiere.id);
+    }
+
+    getListFormateurs(matiereId: number): void{
+        this.formateurService.listAllByMatiereId(matiereId).subscribe(data => {
+            console.log('data = ' + data);
+            this.listFormateursAvailable = data.map(f=> new FormateurModule(f[0],f[1],f[2],f[3],f[4],f[5] ,null, null, null));
+            console.log('listFormateursAvailable = ', this.listFormateursAvailable);
+        })
     }
 
     getListMatieres(): void {
