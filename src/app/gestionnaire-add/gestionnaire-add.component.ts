@@ -36,7 +36,7 @@ export class GestionnaireAddComponent implements OnInit {
     }
 
     onSubmit(): void {
-        console.log('this.salleAddForm.getRawValue() = ' + this.gestionnaireAddForm.getRawValue());
+        console.log('this.gestionnaireAddForm.getRawValue() = ' + this.gestionnaireAddForm.getRawValue());
         this.gestionnaireService.add(this.gestionnaireAddForm.getRawValue()).subscribe(data => {
             console.log('gestionnaire = ' + data);
             this.showNotification('top','right');

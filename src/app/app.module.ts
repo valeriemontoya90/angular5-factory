@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 
 import { MaterielComponent } from './materiel/materiel.component';
 import { RhComponent } from './rh/rh.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatosComponent } from './matos/matos.component';
 import {TableModule} from 'primeng/table';
 import {MatosService} from "./matos.service";
@@ -23,6 +22,9 @@ import {GestionnaireService} from './services/gestionnaire.service';
 import { GestionnaireAddComponent } from './gestionnaire-add/gestionnaire-add.component';
 import { GestionnaireEditComponent } from './gestionnaire-edit/gestionnaire-edit.component';
 import { GestionnaireShowComponent } from './gestionnaire-show/gestionnaire-show.component';
+import { CursusListComponent } from './cursus-list/cursus-list.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CursusService} from './services/cursus.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { GestionnaireShowComponent } from './gestionnaire-show/gestionnaire-show
       GestionnaireListComponent,
       GestionnaireAddComponent,
       GestionnaireEditComponent,
-      GestionnaireShowComponent
+      GestionnaireShowComponent,
+      CursusListComponent
   ],
   imports: [
       BrowserModule,
@@ -51,7 +54,8 @@ import { GestionnaireShowComponent } from './gestionnaire-show/gestionnaire-show
   ],
   providers: [
       MatosService,
-      GestionnaireService
+      GestionnaireService,
+      CursusService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,38 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-
-import {GestionnaireService} from '../services/gestionnaire.service';
+import {CursusService} from '../services/cursus.service';
 
 declare var $: any;
 @Component({
-  selector: 'app-gestionnaire-list',
-  templateUrl: './gestionnaire-list.component.html',
-  styleUrls: ['./gestionnaire-list.component.scss']
+  selector: 'app-cursus-list',
+  templateUrl: './cursus-list.component.html',
+  styleUrls: ['./cursus-list.component.scss']
 })
-export class GestionnaireListComponent implements OnInit {
+export class CursusListComponent implements OnInit {
 
     cols: any[];
     liste: any;
 
-    constructor(private route: ActivatedRoute, private router: Router, private gestionnaireService: GestionnaireService) {}
+    constructor(private route: ActivatedRoute, private router: Router, private cursusService: CursusService) {}
 
     ngOnInit() {
-        this.gestionnaireService.list().subscribe(data => {
+        this.cursusService.list().subscribe(data => {
             this.liste = data;
             console.log('liste = ' + this.liste);
         });
 
         this.cols = [
             {field: 'id', header: 'ID'},
-            {field: 'nom', header: 'nom'},
-            {field: 'prenom', header: 'prenom'},
-            {field: 'adresse', header: 'adresse'},
+            {field: 'titre', header: 'titre'},
             {field: '', header: 'Actions'}
         ];
     }
 
     onDeleteOne(id: number): void {
-        this.gestionnaireService.delete(id).subscribe(data => {
+        this.cursusService.delete(id).subscribe(data => {
             console.log('gestionnaire = ' + data);
             this.showNotification('top','right');
             this.router.navigateByUrl('/gestionnaires');
