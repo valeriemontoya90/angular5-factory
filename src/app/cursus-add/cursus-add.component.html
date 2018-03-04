@@ -8,12 +8,12 @@
             <p class="category">Ceci est un formulaire pour ajouter un nouveau cursus</p>
           </div>
           <div class="card-content">
-            <form [formGroup]="gestionnaireAddForm" novalidate (ngSubmit)="onSubmit()">
+            <form [formGroup]="cursusAddForm" novalidate (ngSubmit)="onSubmit()">
               <input type="hidden" formControlName="id">
               <div class="row">
                 <div class="form-group form-black label-floating is-empty">
                   <label class="control-label">Titre</label>
-                  <input type="text" class="form-control" formControlName="nom">
+                  <input type="text" class="form-control" formControlName="titre">
                 </div>
               </div>
               <div class="row">
@@ -37,7 +37,7 @@
       <div class="col-md-4">
         <div class="card card-profile">
           <div class="card-avatar">
-            <a href="#pablo">
+            <a>
               <img class="img" src="../assets/img/logos/open.jpg" />
             </a>
           </div>
@@ -51,6 +51,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="row">
+        <p-schedule [events]="events" [header]="header" defaultDate="2018-02-01" [eventLimit]="4" [editable]="true"></p-schedule>
     </div>
   </div>
 </div>

@@ -26,6 +26,8 @@ import { CursusListComponent } from './cursus-list/cursus-list.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CursusService} from './services/cursus.service';
 import { CursusAddComponent } from './cursus-add/cursus-add.component';
+import {ScheduleModule} from 'primeng/schedule';
+import {EventService} from './services/event.service';
 
 @NgModule({
   declarations: [
@@ -52,12 +54,14 @@ import { CursusAddComponent } from './cursus-add/cursus-add.component';
       RouterModule,
       AppRoutingModule,
       TableModule,
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      ScheduleModule
   ],
   providers: [
       MatosService,
       GestionnaireService,
-      CursusService
+      CursusService,
+      EventService
   ],
   bootstrap: [AppComponent]
 })
