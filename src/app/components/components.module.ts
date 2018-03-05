@@ -22,9 +22,10 @@ import {FormateurListComponent} from "../formateur-list/formateur-list.component
 import {FormateurAddComponent} from "../formateur-add/formateur-add.component";
 import {FormateurEditComponent} from "../formateur-edit/formateur-edit.component";
 import {FormateurShowComponent} from "../formateur-show/formateur-show.component";
+import {MatiereListComponent} from "../matiere-list/matiere-list.component";
 
 const routes: Routes = [
-    {path: '', redirectTo: 'cursus', pathMatch: 'full'},
+    {path: '', redirectTo: 'matieres', pathMatch: 'full'},
     {path: 'salles', component: MatosComponent},
     {path: 'salles/add', component: MatosSallesAddComponent},
     {path: 'salles/show/:id', component: MatosSallesShowComponent},
@@ -41,7 +42,8 @@ const routes: Routes = [
     {path: 'formateurs', component: FormateurListComponent},
     {path: 'formateurs/add', component: FormateurAddComponent},
     {path: 'formateurs/edit/:id', component: FormateurEditComponent, pathMatch: 'full'},
-    {path: 'formateurs/show/:id', component: FormateurShowComponent}
+    {path: 'formateurs/show/:id', component: FormateurShowComponent},
+    {path: 'matieres', component: MatiereListComponent},
 ]
 
 @NgModule({
