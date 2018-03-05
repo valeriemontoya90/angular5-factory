@@ -23,6 +23,7 @@ import {FormateurAddComponent} from "../formateur-add/formateur-add.component";
 import {FormateurEditComponent} from "../formateur-edit/formateur-edit.component";
 import {FormateurShowComponent} from "../formateur-show/formateur-show.component";
 import {MatiereListComponent} from "../matiere-list/matiere-list.component";
+import {MatiereEditComponent} from "../matiere-edit/matiere-edit.component";
 
 const routes: Routes = [
     {path: '', redirectTo: 'matieres', pathMatch: 'full'},
@@ -44,6 +45,7 @@ const routes: Routes = [
     {path: 'formateurs/edit/:id', component: FormateurEditComponent, pathMatch: 'full'},
     {path: 'formateurs/show/:id', component: FormateurShowComponent},
     {path: 'matieres', component: MatiereListComponent},
+    {path: 'matieres/edit/:id', component: MatiereEditComponent, pathMatch: 'full'},
 ]
 
 @NgModule({
