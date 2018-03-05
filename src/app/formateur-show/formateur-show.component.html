@@ -11,6 +11,8 @@
             <p></p>
             Nom : {{formateur.nom}}<br>
             Prenom : {{formateur.prenom}}<br>
+            Liste de mes compétences :
+            <span *ngFor="let t of competences">{{t.matiere.titre}} {{t.level}}</span>
           </div>
         </div>
       </div>
@@ -22,10 +24,10 @@
             </a>
           </div>
           <div class="content">
-            <h6 class="category text-gray">CEO / Co-Founder</h6>
-            <h4 class="card-title">Alec Thompson</h4>
+            <h6 class="category text-gray">FORMATEUR</h6>
+            <h4 class="card-title">Martin Dupont Thompson</h4>
             <p class="card-content">
-              Je suis un bon formateur qui n'a peur de rien
+              A propos...
             </p>
             <a [routerLink]="['/formateurs/edit', formateur.id]" class="btn btn-danger btn-round">Editer le profil</a>
           </div>

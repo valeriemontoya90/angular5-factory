@@ -40,8 +40,15 @@
                   <input type="email" class="form-control" formControlName="mail">
                 </div>
               </div>
-              <br><br>
-
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label">Sélectionnez vos compétences</label>
+                        <select multiple class="form-control" formControlName="matieres" style="width: 100%;">
+                            <option *ngFor="let t of listMatieres" [value]="t.id">{{t.id}} {{t.titre}} ({{t.duree}} jours)</option>
+                        </select>
+                    </div>
+                </div>
+                <br><br>
               <button type="submit" class="btn btn-danger pull-right">Ajouter un gestionnaire</button>
               <div class="clearfix"></div>
             </form>

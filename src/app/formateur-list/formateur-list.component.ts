@@ -34,7 +34,7 @@ export class FormateurListComponent implements OnInit {
         this.formateurService.delete(id).subscribe(data => {
             console.log('gestionnaire = ' + data);
             this.showNotification('top','right');
-            this.router.navigateByUrl('/gestionnaires');
+            this.router.navigateByUrl('/formateurs');
         },err => {
             console.log('err = ' , err.message);
             this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');

@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {FormateurService} from "../services/formateur.service";
+import {MatiereService} from "../services/matiere.service";
+import {CompetenceService} from "../services/competence.service";
+import {CursusModule} from "../entities/cursus.module";
+import {CompetenceModule} from "../entities/competence.module";
 
 declare var $: any;
 @Component({
@@ -12,15 +16,19 @@ declare var $: any;
 export class FormateurAddComponent implements OnInit {
 
     formateurAddForm: FormGroup;
+    listMatieres: {};
 
-    constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private formateurService: FormateurService) {
+    constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router,
+                private formateurService: FormateurService, private matiereService: MatiereService,
+                private competenceService: CompetenceService) {
         this.formateurAddForm = new FormGroup({
             id: new FormControl(),
             nom: new FormControl(),
             prenom: new FormControl(),
             adresse: new FormControl(),
             codePostal: new FormControl(),
-            mail: new FormControl()
+            mail: new FormControl(),
+            matieres: new FormControl()
         });
     }
 
@@ -31,16 +39,52 @@ export class FormateurAddComponent implements OnInit {
             'prenom': [''],
             'adresse': [''],
             'codePostal': [''],
-            'mail': ['']
+            'mail': [''],
+            'matieres': ['']
         });
+        this.getListMatieres();
+    }
+
+    getListMatieres(): void {
+        this.matiereService.list().subscribe(data => {
+            this.listMatieres = data;
+            console.log('listMatieres = ' + this.listMatieres);
+        })
     }
 
     onSubmit(): void {
-        console.log('this.formateurAddForm.getRawValue() = ' + this.formateurAddForm.getRawValue());
-        this.formateurService.add(this.formateurAddForm.getRawValue()).subscribe(data => {
-            console.log('formateur = ' + data);
+        let dataInput = this.formateurAddForm.getRawValue();
+        console.log('this.formateurAddForm.getRawValue(), ' + dataInput.matieres);
+        this.formateurService.add(this.formateurAddForm.getRawValue()).subscribe(dataFormateur => {
+            console.log('formateur = ' + dataFormateur);
             this.showNotification('top','right');
             this.router.navigateByUrl('/formateurs');
+
+            for (let matiereId of this.formateurAddForm.getRawValue().matieres) {
+                let competence = new CompetenceModule(-1, "AVANCEE", matiereId, data.id);
+                console.log("competence = ", competence);
+                this.competenceService.add(competence).subscribe(data => {
+                    console.log('competence = ' + data);
+                    this.showNotification('top','right');
+                    this.router.navigateByUrl('/competences');
+                },err => {
+
+                    /*this.competenceService.update(this.formateurAddForm.getRawValue()).subscribe(data => {
+                        console.log('competence = ' + data);
+                        this.showNotification('top','right');
+                        this.router.navigateByUrl('/competences');
+                    },err => {
+                        console.log('err = ' , err.message);
+                        this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
+                    })
+
+                    console.log('err = ' , err.message);
+                    this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');*/
+                })
+            }
+
+
+
         },err => {
             console.log('err = ' , err.message);
             this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');

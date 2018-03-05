@@ -42,6 +42,7 @@ import { MatiereListComponent } from './matiere-list/matiere-list.component';
 import { MatiereEditComponent } from './matiere-edit/matiere-edit.component';
 import { MatiereShowComponent } from './matiere-show/matiere-show.component';
 import { MatiereAddComponent } from './matiere-add/matiere-add.component';
+import {CompetenceService} from "./services/competence.service";
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { MatiereAddComponent } from './matiere-add/matiere-add.component';
       CursusService,
       EventService,
       FormateurService,
-      MatiereService
+      MatiereService,
+      CompetenceService
   ],
   bootstrap: [AppComponent]
 })

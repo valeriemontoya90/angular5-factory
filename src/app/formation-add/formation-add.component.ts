@@ -23,7 +23,8 @@ export class FormationAddComponent implements OnInit {
             id: new FormControl(),
             matiere: new FormControl(),
             dateDebut: new FormControl(),
-            dateFin: new FormControl()
+            dateFin: new FormControl(),
+            matieres: new FormControl()
         });
         this.searchFormationForm = new FormGroup({
             listFormateursFormControl: new FormControl()
@@ -35,7 +36,8 @@ export class FormationAddComponent implements OnInit {
           'id': [''],
           'matiere': [''],
           'dateDebut': [''],
-          'dateFin': ['']
+          'dateFin': [''],
+          'matieres': ['']
       });
       this.getListMatieres();
       this.searchFormationForm = this.fb.group({

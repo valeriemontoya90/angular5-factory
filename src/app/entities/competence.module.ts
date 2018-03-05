@@ -1,6 +1,7 @@
 export class CompetenceModule {
-    constructor(public id: number,
+    constructor(
                 public level: string,
-                public matiere: string) {
+                public matiere: number,
+                public formateur: number) {
     }
 }

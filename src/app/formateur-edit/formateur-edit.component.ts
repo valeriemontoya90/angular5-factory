@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {FormateurModule} from "../entities/formateur.module";
 import {FormateurService} from "../services/formateur.service";
+import {MatiereService} from "../services/matiere.service";
 
 declare var $: any;
 @Component({
@@ -16,14 +17,16 @@ export class FormateurEditComponent implements OnInit {
 
     formateurEditForm: FormGroup;
 
-    constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private formateurService: FormateurService) {
+    constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router,
+                private formateurService: FormateurService) {
         this.formateurEditForm = new FormGroup({
             id: new FormControl(),
             nom: new FormControl(),
             prenom: new FormControl(),
             adresse: new FormControl(),
             codePostal: new FormControl(),
-            mail: new FormControl()
+            mail: new FormControl(),
+            matieres: new FormControl()
         });
     }
 
@@ -40,7 +43,8 @@ export class FormateurEditComponent implements OnInit {
                     'prenom': [this.formateur.prenom],
                     'adresse': [this.formateur.adresse],
                     'codePostal': [this.formateur.codePostal],
-                    'mail': [this.formateur.mail]
+                    'mail': [this.formateur.mail],
+                    'matieres': [],
                 });
             });
         });
