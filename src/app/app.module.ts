@@ -34,6 +34,7 @@ import {PickListModule} from 'primeng/primeng';
 import {FormateurService} from './services/formateur.service';
 import {MatiereService} from './services/matiere.service';
 import { FormationAddComponent } from './formation-add/formation-add.component';
+import { FormateurListComponent } from './formateur-list/formateur-list.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { FormationAddComponent } from './formation-add/formation-add.component';
       CursusAddComponent,
       CursusEditComponent,
       CursusShowComponent,
-      FormationAddComponent
+      FormationAddComponent,
+      FormateurListComponent
   ],
   imports: [
       BrowserModule,
