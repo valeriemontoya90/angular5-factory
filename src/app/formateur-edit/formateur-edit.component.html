@@ -1,0 +1,70 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Edition du profil de {{formateur.nom}} {{formateur.prenom}}</h4>
+            <p class="category">Retour <a [routerLink]="['/formateurs']" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">liste des formateurs</a>
+              > <a [routerLink]="['/formateurs/show', formateur.id]" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">Détail de {{formateur.nom}} {{formateur.prenom}}</a>
+            </p>
+          </div>
+          <div class="card-content">
+            <form [formGroup]="formateurEditForm" novalidate (ngSubmit)="onSubmit()">
+              <input type="hidden" formControlName="id">
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Nom</label>
+                  <input type="text" class="form-control" formControlName="nom" value="{{formateur.nom}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Prenom</label>
+                  <input type="text" class="form-control" formControlName="prenom" value="{{formateur.prenom}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Adresse</label>
+                  <input type="text" class="form-control" formControlName="adresse" value="{{formateur.adresse}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Code postal</label>
+                  <input type="text" class="form-control" formControlName="codePostal" value="{{formateur.codePostal}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Mail</label>
+                  <input type="email" class="form-control" formControlName="mail" value="{{formateur.mail}}">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-danger pull-right">Sauvegarder</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <a>
+              <img class="img" src="../assets/img/faces/marc.jpg" />
+            </a>
+          </div>
+
+          <div class="content">
+            <h6 class="category text-gray">FORMATEUR</h6>
+            <h4 class="card-title">Martin DUPONT</h4>
+            <p class="card-content">
+              A propos...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

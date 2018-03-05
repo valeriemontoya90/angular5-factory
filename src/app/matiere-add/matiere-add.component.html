@@ -1,0 +1,49 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card">
+        <div class="card-header" data-background-color="red">
+          <h4 class="title">Ajout d'une nouvelle matière</h4>
+          <p class="category">Retour <a [routerLink]="['/matieres']" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">liste des matières</a></p>
+        </div>
+        <div class="card-content">
+          <form [formGroup]="matiereAddForm" novalidate (ngSubmit)="onSubmit()">
+            <input type="hidden" formControlName="id">
+            <div class="row">
+              <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">Titre</label>
+                <input type="text" class="form-control" formControlName="titre">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">Duree</label>
+                <input type="number" class="form-control" formControlName="duree">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">Objectif</label>
+                <input type="text" class="form-control" formControlName="objectif">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">Prerequis</label>
+                <input type="text" class="form-control" formControlName="prerequis">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">Contenu</label>
+                <input type="text" class="form-control" formControlName="contenu">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-danger pull-right">Sauvegarder</button>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
