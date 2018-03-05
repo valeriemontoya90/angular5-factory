@@ -36,6 +36,8 @@ import {MatiereService} from './services/matiere.service';
 import { FormationAddComponent } from './formation-add/formation-add.component';
 import { FormateurListComponent } from './formateur-list/formateur-list.component';
 import { FormateurAddComponent } from './formateur-add/formateur-add.component';
+import { FormateurEditComponent } from './formateur-edit/formateur-edit.component';
+import { FormateurShowComponent } from './formateur-show/formateur-show.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { FormateurAddComponent } from './formateur-add/formateur-add.component';
       CursusShowComponent,
       FormationAddComponent,
       FormateurListComponent,
-      FormateurAddComponent
+      FormateurAddComponent,
+      FormateurEditComponent,
+      FormateurShowComponent
   ],
   imports: [
       BrowserModule,
