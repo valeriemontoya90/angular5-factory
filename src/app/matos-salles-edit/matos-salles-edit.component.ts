@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {MatosService} from "../matos.service";
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {SalleModule} from "../matos/salle.module";
+import {ActivatedRoute, Router} from '@angular/router';
+import {MatosService} from '../matos.service';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {SalleModule} from '../matos/salle.module';
 
 @Component({
   selector: 'app-matos-salles-edit',
@@ -11,16 +11,23 @@ import {SalleModule} from "../matos/salle.module";
 })
 export class MatosSallesEditComponent implements OnInit {
 
-    salle = new SalleModule(-1, "", 0, "", 0);
+    salle = new SalleModule(-1, '', 0, '', 0);
     salleAddForm: FormGroup;
 
     constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private matosService: MatosService) {
+        this.salleAddForm = new FormGroup({
+            id: new FormControl(),
+            code: new FormControl(),
+            cout: new FormControl(),
+            isDisponible: new FormControl(),
+            capacite: new FormControl()
+        });
     }
 
     ngOnInit() {
         this.route.params.subscribe(params => {
             const id = params['id'];
-            console.log("ID == "+id);
+            console.log('ID == ' +  id);
             this.matosService.getOne(id).subscribe(data => {
                 this.salle = data;
                 console.log('salle detail = ' + this.salle);
@@ -36,9 +43,11 @@ export class MatosSallesEditComponent implements OnInit {
     }
 
     onSubmit(): void {
-        this.matosService.update(this.salleAddForm.value()).subscribe(data => {
+        console.log('this.salleAddForm.getRawValue() = ' + this.salleAddForm.getRawValue());
+        this.matosService.update(this.salleAddForm.getRawValue()).subscribe(data => {
             this.salle = data;
-            console.log('user detail = ' + this.salle );
+            console.log('salle detail = ' + this.salle.capacite );
+            this.router.navigateByUrl('/salles');
         });
     }
 }

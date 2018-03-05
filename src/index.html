@@ -15,11 +15,6 @@
     <!--     Fonts and icons     -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
-    <script
-            src="https://code.jquery.com/jquery-3.3.1.js"
-            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-            crossorigin="anonymous"></script>
-
 
 </head>
 <body>
@@ -33,18 +28,9 @@
 </body>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-<script
-        src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
-<script
-        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-        crossorigin="anonymous"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {
-        console.log( "ready!" );
         $(".nav-container nav .level-1").click(function () {
             $(".nav-container nav .level-1").removeClass("active");
             if ($(this).hasClass("active")) {
@@ -53,6 +39,9 @@
                 $(this).addClass("active");
             }
         });
+        function editFormation(e) {
+            console.log("EVENT = "+e);
+        }
     });
 </script>
 

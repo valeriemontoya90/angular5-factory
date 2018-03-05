@@ -1,0 +1,36 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Détail du profil {{gestionnaire.nom}} {{gestionnaire.prenom}}</h4>
+            <p class="category">Retour <a [routerLink]="['/gestionnaires']" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">liste des gestionnaires</a></p>
+          </div>
+          <div class="card-content table-responsive">
+            <p></p>
+            Nom : {{gestionnaire.nom}}<br>
+            Prenom : {{gestionnaire.prenom}}<br>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <a href="#pablo">
+              <img class="img" src="../assets/img/faces/marc.jpg" />
+            </a>
+          </div>
+          <div class="content">
+            <h6 class="category text-gray">CEO / Co-Founder</h6>
+            <h4 class="card-title">Alec Thompson</h4>
+            <p class="card-content">
+              Je suis un bon gestionnaire qui n'a peur de rien
+            </p>
+              <a [routerLink]="['/gestionnaires/edit', gestionnaire.id]" class="btn btn-danger btn-round">Editer le profil</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

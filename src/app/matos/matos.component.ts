@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {MatosService} from "../matos.service";
+import {ActivatedRoute, Router} from '@angular/router';
+import {MatosService} from '../matos.service';
 
 @Component({
   selector: 'app-matos',
