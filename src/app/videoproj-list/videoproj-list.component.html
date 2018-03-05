@@ -1,0 +1,65 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Vidéo projecteurs</h4>
+            <p class="category">Liste des vidéo projecteurs</p>
+          </div>
+          <a [routerLink]="['/videoprojs/add']">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ajoutModal">Ajouter</button>
+          </a>
+          <div class="card-content table-responsive">
+            <p-table [value]="listVideoprojs" [rows]="10" [paginator]="true">
+
+              <ng-template pTemplate="header">
+                <p-growl [value]="msgs"></p-growl>
+                <p-confirmDialog width="430" #cd>
+                  <p-footer>
+                    <button type="button" pButton icon="fa-check" label="Oui" (click)="cd.accept()"></button>
+                    <button type="button" pButton icon="fa-close" label="Non" (click)="cd.reject()"></button>
+                  </p-footer>
+                </p-confirmDialog>
+                <tr>
+                  <th *ngFor="let col of cols" [pSortableColumn]="col.field">
+                    {{col.header}}
+                    <p-sortIcon [field]="col.field"></p-sortIcon>
+                  </th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-item>
+                <tr>
+                  <td>{{item.id}}</td>
+                  <td>{{item.code}}</td>
+                  <td>{{item.cout}}</td>
+                  <td>{{item.isDisponible}}</td>
+                  <td>
+                    <a [routerLink]="['/videoprojs/edit', item.id]">
+                      <i class="material-icons">edit</i>
+                    </a>
+                    <a (click)="onDeleteOne(item.id)">
+                      <i class="material-icons">delete</i>
+                    </a>
+
+
+
+                    <a (click)="confirm(item.id)">
+                      <i class="material-icons">delete</i>2</a>
+
+
+
+                    <a [routerLink]="['/videoprojs/show', item.id]">
+                      <i class="material-icons">assignment</i>
+                    </a>
+                  </td>
+                </tr>
+              </ng-template>
+
+            </p-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
