@@ -61,7 +61,7 @@ export class FormateurAddComponent implements OnInit {
             this.router.navigateByUrl('/formateurs');
 
             for (let matiereId of this.formateurAddForm.getRawValue().matieres) {
-                let competence = new CompetenceModule(-1, "AVANCEE", matiereId, data.id);
+                let competence = new CompetenceModule(-1, "AVANCEE", matiereId, dataFormateur.id);
                 console.log("competence = ", competence);
                 this.competenceService.add(competence).subscribe(data => {
                     console.log('competence = ' + data);
