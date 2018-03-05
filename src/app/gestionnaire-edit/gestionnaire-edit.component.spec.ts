@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CursusListComponent } from './cursus-list.component';
+import { GestionnaireEditComponent } from './gestionnaire-edit.component';
 
-describe('CursusListComponent', () => {
-  let component: CursusListComponent;
-  let fixture: ComponentFixture<CursusListComponent>;
+describe('GestionnaireEditComponent', () => {
+  let component: GestionnaireEditComponent;
+  let fixture: ComponentFixture<GestionnaireEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CursusListComponent ]
+      declarations: [ GestionnaireEditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CursusListComponent);
+    fixture = TestBed.createComponent(GestionnaireEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

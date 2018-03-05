@@ -3,7 +3,7 @@
         <div class="logo-img">
             <img src="/assets/img/angular2-logo-red.png"/>
         </div>
-        Creative Tim
+        La Factory
     </a>
 </div>
 <div class="sidebar-wrapper">
@@ -51,7 +51,7 @@
             <ul class="nav">
                 <li><a id="btn-1" data-toggle="collapse" data-target="#submenu1" aria-expanded="false"><i class="material-icons">face</i><p>Ressources humaines</p></a>
                     <ul class="nav collapse" id="submenu1" role="menu" aria-labelledby="btn-1">
-                        <li class="level-1"><a>Gestionnaires</a></li>
+                        <li class="level-1"><a a [routerLink]="['/gestionnaires']">Gestionnaires</a></li>
                         <li class="level-1"><a>Formateurs</a></li>
                         <li class="level-1"><a>Stagiaires</a></li>
                         <li class="level-1"><a>Techniciens</a></li>
@@ -64,6 +64,7 @@
                         <li class="level-1"><a a [routerLink]="['/videoprojs']">Vidéos projecteurs</a></li>
                     </ul>
                 </li>
+                <li><a a [routerLink]="['/cursus']"><i class="material-icons right">content_paste</i><p>Cursus</p></a></li>
             </ul>
         </nav>
         <!--<ul class="nav">
