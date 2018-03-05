@@ -40,6 +40,7 @@ import { FormateurEditComponent } from './formateur-edit/formateur-edit.componen
 import { FormateurShowComponent } from './formateur-show/formateur-show.component';
 import { MatiereListComponent } from './matiere-list/matiere-list.component';
 import { MatiereEditComponent } from './matiere-edit/matiere-edit.component';
+import { MatiereShowComponent } from './matiere-show/matiere-show.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { MatiereEditComponent } from './matiere-edit/matiere-edit.component';
       FormateurEditComponent,
       FormateurShowComponent,
       MatiereListComponent,
-      MatiereEditComponent
+      MatiereEditComponent,
+      MatiereShowComponent
   ],
   imports: [
       BrowserModule,
