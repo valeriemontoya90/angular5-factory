@@ -33,7 +33,7 @@ const routes: Routes = [
   { path: 'videoprojs/show/:id', component: VideoprojShowComponent },
   { path: 'videoprojs/edit/:id', component: VideoprojEditComponent, pathMatch: 'full' }
 ]
-
+      
 @NgModule({
   imports: [
     CommonModule,
