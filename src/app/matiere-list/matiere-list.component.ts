@@ -34,7 +34,7 @@ export class MatiereListComponent implements OnInit {
         this.matiereService.delete(id).subscribe(data => {
             console.log('gestionnaire = ' + data);
             this.showNotification('top','right');
-            this.router.navigateByUrl('/gestionnaires');
+            this.router.navigateByUrl('/matieres');
         },err => {
             console.log('err = ' , err.message);
             this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');

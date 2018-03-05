@@ -25,6 +25,7 @@ import {FormateurShowComponent} from "../formateur-show/formateur-show.component
 import {MatiereListComponent} from "../matiere-list/matiere-list.component";
 import {MatiereEditComponent} from "../matiere-edit/matiere-edit.component";
 import {MatiereShowComponent} from "../matiere-show/matiere-show.component";
+import {MatiereAddComponent} from "../matiere-add/matiere-add.component";
 
 const routes: Routes = [
     {path: '', redirectTo: 'matieres', pathMatch: 'full'},
@@ -46,6 +47,7 @@ const routes: Routes = [
     {path: 'formateurs/edit/:id', component: FormateurEditComponent, pathMatch: 'full'},
     {path: 'formateurs/show/:id', component: FormateurShowComponent},
     {path: 'matieres', component: MatiereListComponent},
+    {path: 'matieres/add', component: MatiereAddComponent},
     {path: 'matieres/edit/:id', component: MatiereEditComponent, pathMatch: 'full'},
     {path: 'matieres/show/:id', component: MatiereShowComponent}
 ]
