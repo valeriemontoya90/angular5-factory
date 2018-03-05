@@ -33,6 +33,7 @@ import { CursusShowComponent } from './cursus-show/cursus-show.component';
 import {PickListModule} from 'primeng/primeng';
 import {FormateurService} from './services/formateur.service';
 import {MatiereService} from './services/matiere.service';
+import { FormationAddComponent } from './formation-add/formation-add.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {MatiereService} from './services/matiere.service';
       CursusListComponent,
       CursusAddComponent,
       CursusEditComponent,
-      CursusShowComponent
+      CursusShowComponent,
+      FormationAddComponent
   ],
   imports: [
       BrowserModule,

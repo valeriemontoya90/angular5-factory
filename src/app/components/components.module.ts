@@ -17,6 +17,7 @@ import {CursusListComponent} from '../cursus-list/cursus-list.component';
 import {CursusAddComponent} from '../cursus-add/cursus-add.component';
 import {CursusEditComponent} from '../cursus-edit/cursus-edit.component';
 import {CursusShowComponent} from '../cursus-show/cursus-show.component';
+import {FormationAddComponent} from "../formation-add/formation-add.component";
 
 const routes: Routes = [
     {path: '', redirectTo: 'cursus', pathMatch: 'full'},
@@ -31,7 +32,8 @@ const routes: Routes = [
     {path: 'cursus', component: CursusListComponent},
     {path: 'cursus/add', component: CursusAddComponent},
     {path: 'cursus/edit/:id', component: CursusEditComponent, pathMatch: 'full'},
-    {path: 'cursus/show/:id', component: CursusShowComponent}
+    {path: 'cursus/show/:id', component: CursusShowComponent},
+    {path: 'formations/add', component: FormationAddComponent}
 ]
 
 @NgModule({

@@ -23,7 +23,6 @@ export class CursusEditComponent implements OnInit {
     colsFormation: any[];
     headerScheduler: any;
     eventsScheduler = [{'title' : '', 'start' : '', 'end' : ''}];
-    formationAddForm: FormGroup;
     listFormateursAvailable: any[];
     listFormateursSelected: any[];
     listMatieres: {};
@@ -38,13 +37,6 @@ export class CursusEditComponent implements OnInit {
             dateFin: new FormControl(),
             stagiaires: new FormControl(),
             formations: new FormControl()
-        });
-        this.formationAddForm = new FormGroup({
-            id: new FormControl(),
-            dateDebut: new FormControl(),
-            dateFin: new FormControl(),
-            listMatieres: new FormControl(),
-            formateur: new FormControl()
         });
     }
 
@@ -131,13 +123,7 @@ export class CursusEditComponent implements OnInit {
         $(".pickListFactory").show();
         $(".pickListFactory").show();
         this.formationSelected = formation;
-        this.formationAddForm = this.fb.group({
-            'id': [formation.id],
-            'dateDebut': [formation.dateDebut],
-            'dateFin': [formation.dateFin],
-            'listMatieres': this.getListMatieres(),
-            'formateur': [formation.formateur]
-        });
+
         this.getListFormateurs(this.formationSelected.matiere.id);
     }
 

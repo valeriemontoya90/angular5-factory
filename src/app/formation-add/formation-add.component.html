@@ -1,0 +1,72 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Ajouter d'une nouvelle formation</h4>
+          </div>
+          <div class="card-content">
+            <form [formGroup]="formationAddForm" novalidate (ngSubmit)="onSubmit()">
+              <input type="hidden" formControlName="id">
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Choisir une matière</label>
+                  <select class="form-control" formControlName="matiere" style="width: 100%;">
+                    <option *ngFor="let t of listMatieres" [value]="t.id">{{t.id}} {{t.titre}} ({{t.duree}} jours)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Date de début de la formation</label>
+                  <input type="date" class="form-control" formControlName="dateDebut">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Date de fin de la formation</label>
+                  <input type="date" class="form-control" formControlName="dateFin">
+                </div>
+              </div>
+              <button type="button" (click)="onSearchListFormateurs()" class="btn btn-warning pull-right">Rechercher des formateurs</button>
+              <div class="clearfix"></div>
+              <br>
+              <form id="formSearchAFormateur" *ngIf="matiereSelectedId!=null" [formGroup]="searchFormationForm" novalidate (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="form-group">
+                    <label class="control-label">Choisir un formateur</label>
+                    <select class="form-control" formControlName="listFormateursFormControl" style="width: 100%;">
+                      <option *ngFor="let t of listFormateursAvailable" [value]="t.id">{{t.nom}} ({{t.prenom}})</option>
+                    </select>
+                  </div>
+                </div>
+              <br>
+              <button type="submit" class="btn btn-warning pull-right">Sauvegarder</button>
+              <button type="button" class="btn btn-default pull-right" (click)="closePickList()">Annuler</button>
+              <div class="clearfix"></div>
+              </form>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <a href="#pablo">
+              <img class="img" src="../assets/img/faces/marc.jpg" />
+            </a>
+          </div>
+          <div class="content">
+            <h6 class="category text-gray">CEO / Co-Founder</h6>
+            <h4 class="card-title">Alec Thompson</h4>
+            <p class="card-content">
+              Ceci une formation
+            </p>
+            <a href="#pablo" class="btn btn-danger btn-round">Importer le CDC</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
