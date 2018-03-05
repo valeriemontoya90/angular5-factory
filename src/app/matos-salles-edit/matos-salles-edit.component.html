@@ -5,7 +5,9 @@
         <div class="card">
           <div class="card-header" data-background-color="red">
             <h4 class="title">Edition de la salle {{salle.id}}</h4>
-            <p class="category">fgfdgfdgfdgfgfdgf</p>
+            <p class="category">Retour <a [routerLink]="['/salles']" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">liste des salles</a>
+              > <a [routerLink]="['/salles/show', salle.id]" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">Détail de la salle {{salle.id}}</a>
+            </p>
           </div>
           <div class="card-content table-responsive">
             <form [formGroup]="salleAddForm" novalidate (ngSubmit)="onSubmit()">
@@ -35,7 +37,7 @@
                 </div>
               </div>
               <div class="clearfix"></div>
-              <button type="submit" class="btn btn-info">Sauvegarder</button>
+              <button type="submit" class="btn btn-danger pull-right">Sauvegarder</button>
             </form>
           </div>
         </div>

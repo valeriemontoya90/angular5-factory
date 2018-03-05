@@ -49,6 +49,7 @@ const routes: Routes = [
   { path: 'cursus/add', component: CursusAddComponent },
   { path: 'cursus/edit/:id', component: CursusEditComponent, pathMatch: 'full' },
   { path: 'cursus/show/:id', component: CursusShowComponent }
+
 ]
 
 @NgModule({

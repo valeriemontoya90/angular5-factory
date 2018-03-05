@@ -8,6 +8,10 @@ import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
 
+<<<<<<< Updated upstream
+=======
+import { DashboardComponent } from './dashboard/dashboard.component';
+>>>>>>> Stashed changes
 import { MaterielComponent } from './materiel/materiel.component';
 import { RhComponent } from './rh/rh.component';
 
@@ -47,6 +51,7 @@ import { OrdinateurShowComponent } from './ordinateur-show/ordinateur-show.compo
 import { CommonModule } from '@angular/common';
 import { OrdinateurService } from './services/ordinateur.service';
 import { VideoprojService } from './services/videoproj.service';
+<<<<<<< Updated upstream
 
 @NgModule({
   declarations: [
@@ -73,6 +78,32 @@ import { VideoprojService } from './services/videoproj.service';
       OrdinateurAddComponent,
       OrdinateurEditComponent,
       OrdinateurShowComponent
+=======
+import { CommonModule } from '@angular/common';
+import { GestionnaireListComponent } from './gestionnaire-list/gestionnaire-list.component';
+import { GestionnaireService } from './services/gestionnaire.service';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    MaterielComponent,
+    RhComponent,
+    MatosComponent,
+    MatosSallesAddComponent,
+    MatosSallesEditComponent,
+    MatosSallesShowComponent,
+    VideoprojListComponent,
+    VideoprojAddComponent,
+    VideoprojEditComponent,
+    VideoprojShowComponent,
+    OrdinateurListComponent,
+    OrdinateurAddComponent,
+    OrdinateurEditComponent,
+    OrdinateurShowComponent,
+    GestionnaireListComponent
+
+>>>>>>> Stashed changes
   ],
   imports: [
       BrowserModule,

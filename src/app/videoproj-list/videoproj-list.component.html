@@ -7,9 +7,7 @@
             <h4 class="title">Vidéo projecteurs</h4>
             <p class="category">Liste des vidéo projecteurs</p>
           </div>
-          <a [routerLink]="['/videoprojs/add']">
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ajoutModal">Ajouter</button>
-          </a>
+          <br>
           <div class="card-content table-responsive">
             <p-table [value]="listVideoprojs" [rows]="10" [paginator]="true">
 
@@ -35,28 +33,35 @@
                   <td>{{item.cout}}</td>
                   <td>{{item.isDisponible}}</td>
                   <td>
-                    <a [routerLink]="['/videoprojs/edit', item.id]">
-                      <i class="material-icons">edit</i>
-                    </a>
-                    <a (click)="onDeleteOne(item.id)">
-                      <i class="material-icons">delete</i>
-                    </a>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <a [routerLink]="['/videoprojs/edit', item.id]">
+                          <i class="material-icons">edit</i>
+                        </a>
+                      </div>
+                      <div class="col-md-4">
+                        <a (click)="confirm(item.id)">
+                          <i class="material-icons">delete</i>
+                        </a>
+                      </div>
+                      <div class="col-md-4">
+                        <a [routerLink]="['/videoprojs/show', item.id]">
+                          <i class="material-icons">assignment</i>
+                        </a>
+                      </div>
+                    </div>
 
 
-
-                    <a (click)="confirm(item.id)">
-                      <i class="material-icons">delete</i>2</a>
-
-
-
-                    <a [routerLink]="['/videoprojs/show', item.id]">
-                      <i class="material-icons">assignment</i>
-                    </a>
                   </td>
                 </tr>
               </ng-template>
-
             </p-table>
+            <br>
+            <br>
+            <a [routerLink]="['/videoprojs/add']">
+              <button type="submit" class="btn btn-danger pull-right">Ajouter</button>
+            </a>
+            <div class="clearfix"></div>
           </div>
         </div>
       </div>

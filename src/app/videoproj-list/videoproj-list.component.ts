@@ -4,7 +4,7 @@ import { MatosService } from '../matos.service';
 import { VideoprojService } from '../services/videoproj.service';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, Message } from 'primeng/api';
-
+declare var $: any;
 @Component({
   selector: 'app-videoproj-list',
   templateUrl: './videoproj-list.component.html',
@@ -14,15 +14,12 @@ import { ConfirmationService, Message } from 'primeng/api';
 export class VideoprojListComponent implements OnInit {
   msgs: Message[] = [];
   cols: any[];
-  listVideoprojs: any;S
+  listVideoprojs: any; S
 
   constructor(private route: ActivatedRoute, private router: Router, private videoprojService: VideoprojService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
-    this.videoprojService.list().subscribe(data => {
-      this.listVideoprojs = data;
-      console.log('listVideoprojs = ' + this.listVideoprojs);
-    });
+    this.refreshList();
 
     this.cols = [
       { field: 'id', header: 'ID' },
@@ -33,11 +30,22 @@ export class VideoprojListComponent implements OnInit {
     ];
   }
 
+  refreshList() {
+    this.videoprojService.list().subscribe(data => {
+      this.listVideoprojs = data;
+    });
+  };
+
   onDeleteOne(id: number): void {
     console.log('on rentre dans le delete');
     this.videoprojService.delete(id).subscribe(data => {
       this.router.navigateByUrl('/videoprojs');
-    });
+      this.showNotification('top', 'right');
+      this.refreshList();
+    }, err => {
+      console.log('err = ', err.message);
+      this.showNotification('top', 'right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
+    })
   }
 
   confirm(id: number) {
@@ -49,10 +57,22 @@ export class VideoprojListComponent implements OnInit {
       icon: 'fa fa-trash',
       accept: () => {
         this.onDeleteOne(id);
-        //this.msgs = [{ severity: 'info', summary: 'Confirmed', detail: 'Vidéo projecteur supprimé' }];
       }
     });
   }
 
+  showNotification(from, align, type = "success", message = "SUCCES - La suppresion a bien fonctionné") {
+    $.notify({
+      icon: "notifications",
+      message: message
+    }, {
+        type: type,
+        timer: 4000,
+        placement: {
+          from: from,
+          align: align
+        }
+      });
+  }
 
 }
