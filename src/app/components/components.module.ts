@@ -19,6 +19,7 @@ import {CursusEditComponent} from '../cursus-edit/cursus-edit.component';
 import {CursusShowComponent} from '../cursus-show/cursus-show.component';
 import {FormationAddComponent} from "../formation-add/formation-add.component";
 import {FormateurListComponent} from "../formateur-list/formateur-list.component";
+import {FormateurAddComponent} from "../formateur-add/formateur-add.component";
 
 const routes: Routes = [
     {path: '', redirectTo: 'cursus', pathMatch: 'full'},
@@ -35,7 +36,8 @@ const routes: Routes = [
     {path: 'cursus/edit/:id', component: CursusEditComponent, pathMatch: 'full'},
     {path: 'cursus/show/:id', component: CursusShowComponent},
     {path: 'formations/add', component: FormationAddComponent},
-    {path: 'formateurs', component: FormateurListComponent}
+    {path: 'formateurs', component: FormateurListComponent},
+    {path: 'formateurs/add', component: FormateurAddComponent}
 ]
 
 @NgModule({
