@@ -6,6 +6,7 @@ import {MatiereService} from "../services/matiere.service";
 import {FormationService} from '../services/formation.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CursusService} from '../services/cursus.service';
+import {FormationModule} from '../entities/formation.module';
 
 declare var $: any;
 @Component({
@@ -40,17 +41,17 @@ export class FormationAddComponent implements OnInit {
       this.route.params.subscribe(params => {
           this.cursusId = params['id'];
           console.log('cursusId == ' +  this.cursusId);
-      });
-      this.formationAddForm = this.fb.group({
-          'id': [''],
-          'matiere': [''],
-          'dateDebut': [''],
-          'dateFin': [''],
-          'matieres': ['']
-      });
-      this.getListMatieres();
-      this.searchFormationForm = this.fb.group({
-          'listFormateursFormControl': ['']
+          this.formationAddForm = this.fb.group({
+              'id': [''],
+              'matiere': [''],
+              'dateDebut': [''],
+              'dateFin': [''],
+              'matieres': ['']
+          });
+          this.getListMatieres();
+          this.searchFormationForm = this.fb.group({
+              'listFormateursFormControl': ['']
+          });
       });
   }
 
@@ -72,10 +73,31 @@ export class FormationAddComponent implements OnInit {
     }
 
     onSubmit(): void {
-        console.log('this.formationAddForm.getRawValue() = ' + this.formationAddForm.getRawValue());
-        this.formationService.add(this.formationAddForm.getRawValue()).subscribe(data => {
-            console.log('formation = ' + data);
-            
+        console.log('this.formationAddForm.getRawValue() = ', this.formationAddForm.getRawValue());
+        let matiere: any;
+        let formateur: any;
+
+        this.matiereService.getOne(this.formationAddForm.getRawValue().matiere).subscribe(data => {
+            matiere = data;
+
+            this.formateurService.getOne(this.searchFormationForm.getRawValue().listFormateursFormControl).subscribe(data => {
+                    formateur = data;
+
+                    let formation = new FormationModule(-1, this.formationAddForm.getRawValue().dateDebut, this.formationAddForm.getRawValue().dateFin,
+                        matiere, formateur, this.cursusId);
+                    console.log("formation.toJSON() = ", formation.toJSON());
+                    this.formationService.add(formation.toJSON()).subscribe(data => {
+                        console.log('formation = ' + data);
+                        this.showNotification('top', 'right');
+                        this.router.navigateByUrl('/cursus/edit/' + this.cursusId);
+
+                    });
+
+                },err => {
+            console.log('err = ' , err.message);
+            this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
+            });
+
         },err => {
             console.log('err = ' , err.message);
             this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');

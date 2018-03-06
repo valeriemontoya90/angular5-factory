@@ -15,12 +15,4 @@ export class CompetenceModule {
             formateur: {id: this.formateur}
         }
     }
-
-    toBuildJSON(): any {
-        return {
-            level: this.level,
-            matieres: {id: this.matiere},
-            formateur: {id: this.formateur}
-        }
-    }
 }

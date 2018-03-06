@@ -98,12 +98,17 @@ export class CursusEditComponent implements OnInit {
     }
 
     getEventCursus(): void {
-        this.eventsScheduler.push(this.encodeCursus(this.cursus));
+        if (this.cursus!=null) {
+            this.eventsScheduler.push(this.encodeCursus(this.cursus));
+        }
     }
 
     getEventsFormations(): void {
-        for(let formation of this.cursus.formations) {
-            this.eventsScheduler.push(this.encodeFormations(formation));
+        if (this.cursus.formations!=null) {
+            for(let formation of this.cursus.formations) {
+                this.eventsScheduler.push(this.encodeFormations(formation));
+            }
+
         }
     }
 
