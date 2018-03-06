@@ -1,0 +1,23 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Détail du technicien {{technicien.nom}} {{technicien.prenom}}</h4>
+            <p class="category">Retour <a [routerLink]="['/techniciens']" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">liste des techniciens</a></p>
+          </div>
+          <div class="card-content table-responsive">
+            <p></p>
+            nom : {{technicien.nom}}<br>
+            prenom : {{technicien.prenom}}<br>
+            adresse : {{technicien.adresse}}<br>
+            codePostal : {{technicien.codePostal}}<br>
+            mail : {{technicien.mail}}<br>
+            materiel : {{technicien.materiel}} <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

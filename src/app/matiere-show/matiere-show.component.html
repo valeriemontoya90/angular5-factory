@@ -1,0 +1,22 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Détail du profil {{matiere.titre}} ({{matiere.duree}} jours)</h4>
+            <p class="category">Retour <a [routerLink]="['/matieres']" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">
+              liste des matières</a></p>
+          </div>
+          <div class="card-content table-responsive">
+            <p></p>
+            <strong>ID: #{{matiere.id}}</strong><br>
+            Titre : {{matiere.titre}}<br>
+            Duree : {{matiere.duree}}<br>
+            Objectif : {{matiere.objectif}}<br>
+            Prerequis : {{matiere.prerequis}}<br>
+            Contenu : {{matiere.contenu}}<br>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

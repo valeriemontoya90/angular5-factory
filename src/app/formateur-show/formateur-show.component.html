@@ -1,0 +1,38 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Détail du profil {{formateur.nom}} {{formateur.prenom}}</h4>
+            <p class="category">Retour <a [routerLink]="['/formateurs']" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">liste des formateurs</a></p>
+          </div>
+          <div class="card-content table-responsive">
+            <p></p>
+            Nom : {{formateur.nom}}<br>
+            Prenom : {{formateur.prenom}}<br>
+            Liste de mes compétences :
+            <div *ngFor="let t of competences"[value]="t.id">{{t.competences.matiere}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <a>
+              <img class="img" src="../assets/img/faces/marc.jpg" />
+            </a>
+          </div>
+          <div class="content">
+            <h6 class="category text-gray">FORMATEUR</h6>
+            <h4 class="card-title">Martin Dupont Thompson</h4>
+            <p class="card-content">
+              A propos...
+            </p>
+            <a [routerLink]="['/formateurs/edit', formateur.id]" class="btn btn-danger btn-round">Editer le profil</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

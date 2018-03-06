@@ -1,0 +1,63 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Edition de la matière {{matiere.titre}} ({{matiere.duree}} jours)</h4>
+            <p class="category">Retour <a [routerLink]="['/matieres']" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">liste des matières</a>
+              > <a [routerLink]="['/matieres/show', matiere.id]" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">Détail de {{matiere.titre}} {{matiere.duree}}</a>
+            </p>
+          </div>
+          <div class="card-content">
+            <form [formGroup]="matiereEditForm" novalidate (ngSubmit)="onSubmit()">
+              <input type="hidden" formControlName="id">
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Titre</label>
+                  <input type="text" class="form-control" formControlName="titre" value="{{matiere.nom}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Duree</label>
+                  <input type="text" class="form-control" formControlName="duree" value="{{matiere.duree}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Objectif</label>
+                  <input type="text" class="form-control" formControlName="objectif" value="{{matiere.objectif}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Prerequis</label>
+                  <input type="text" class="form-control" formControlName="prerequis" value="{{matiere.prerequis}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Contenu</label>
+                  <input type="email" class="form-control" formControlName="contenu" value="{{matiere.contenu}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>About Me</label>
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                      <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-danger pull-right">Sauvegarder</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
