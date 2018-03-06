@@ -12,7 +12,7 @@
             Nom : {{formateur.nom}}<br>
             Prenom : {{formateur.prenom}}<br>
             Liste de mes compétences :
-            <div *ngFor="let t of competences"[value]="t.id">{{t.competences.matiere}}</div>
+            <span *ngFor="let t of competences">{{t.matiere}}</span>
           </div>
         </div>
       </div>
