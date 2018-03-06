@@ -41,7 +41,7 @@ const routes: Routes = [
     {path: 'cursus/add', component: CursusAddComponent},
     {path: 'cursus/edit/:id', component: CursusEditComponent, pathMatch: 'full'},
     {path: 'cursus/show/:id', component: CursusShowComponent},
-    {path: 'formations/add', component: FormationAddComponent},
+    {path: 'cursus/formations/add/:id', component: FormationAddComponent},
     {path: 'formateurs', component: FormateurListComponent},
     {path: 'formateurs/add', component: FormateurAddComponent},
     {path: 'formateurs/edit/:id', component: FormateurEditComponent, pathMatch: 'full'},

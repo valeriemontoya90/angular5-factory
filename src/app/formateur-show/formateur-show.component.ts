@@ -20,16 +20,15 @@ export class FormateurShowComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(params => {
             const id = params['id'];
-
-            this.competenceService.listAllByFormateurId(id).subscribe(data => {
-                this.competences = data;
-                console.log("this.competences = ", this.competences);
-               });
-        });
-            /*this.formateurService.getOne(id).subscribe(data => {
+            this.formateurService.getOne(id).subscribe(data => {
                 this.formateur = data;
-                console.log('formateur detail = ' + this.formateur );
+                console.log('formateur detail = ' + this.formateur);
 
-            });*/
+                this.competenceService.listAllByFormateurId(id).subscribe(data => {
+                    this.competences = data;
+                    console.log("this.competences = ", this.competences);
+                });
+            });
+        });
     }
 }

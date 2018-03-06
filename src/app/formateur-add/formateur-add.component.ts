@@ -57,14 +57,14 @@ export class FormateurAddComponent implements OnInit {
         console.log('this.formateurAddForm.getRawValue(), ' + dataInput.matieres);
         this.formateurService.add(this.formateurAddForm.getRawValue()).subscribe(dataFormateur => {
             console.log('formateur = ' + dataFormateur);
-            this.showNotification('top','right');
-            this.router.navigateByUrl('/formateurs');
 
             for (let matiereId of this.formateurAddForm.getRawValue().matieres) {
                 let competence = new CompetenceModule(-1, "AVANCE", matiereId, dataFormateur.id);
                 console.log("competence = ", competence);
                 this.competenceService.add(competence.toJSON()).subscribe(data => {
                     console.log('competence = ' + data);
+                    this.showNotification('top','right');
+                    this.router.navigateByUrl('/formateurs');
                 },err => {
                     console.log('err = ' , err.message);
                 });
