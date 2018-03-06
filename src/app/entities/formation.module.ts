@@ -8,17 +8,16 @@ export class FormationModule {
                 public dateFin: Date,
                 public matiere: MatiereModule,
                 public formateur: FormateurModule,
-                public cursus: number) {
-
+                public cursus: CursusModule) {
     }
 
     toJSON(): any {
         return {
             dateDebut: this.dateDebut,
             dateFin: this.dateFin,
-            matiere: {id: this.matiere},
-            formateur: {id: this.formateur},
-            cursus: {id: this.cursus}
+            matiere: this.matiere,
+            formateur: this.formateur,
+            cursus: this.cursus
         }
     }
 }

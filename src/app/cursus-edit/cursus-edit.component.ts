@@ -8,6 +8,7 @@ import {EventCalendar} from '../entities/eventCalendar.module';
 import {FormateurService} from '../services/formateur.service';
 import {MatiereService} from '../services/matiere.service';
 import {FormateurModule} from '../entities/formateur.module';
+import {FormationService} from '../services/formation.service';
 
 declare var $: any;
 @Component({
@@ -23,20 +24,15 @@ export class CursusEditComponent implements OnInit {
     colsFormation: any[];
     headerScheduler: any;
     eventsScheduler = [{'title' : '', 'start' : '', 'end' : ''}];
-    listFormateursAvailable: any[];
-    listFormateursSelected: any[];
-    listMatieres: {};
-    formationSelected: any;
+    formations: {};
 
     constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private cursusService: CursusService,
-                private formateurService: FormateurService, private matiereService: MatiereService) {
+                private formateurService: FormateurService, private matiereService: MatiereService, private formationService: FormationService) {
         this.cursusAddForm = new FormGroup({
             id: new FormControl(),
             titre: new FormControl(),
             dateDebut: new FormControl(),
-            dateFin: new FormControl(),
-            stagiaires: new FormControl(),
-            formations: new FormControl()
+            dateFin: new FormControl()
         });
     }
 
@@ -51,13 +47,15 @@ export class CursusEditComponent implements OnInit {
                     'id': [this.cursus.id],
                     'titre': [this.cursus.titre],
                     'dateDebut': [this.cursus.dateDebut],
-                    'dateFin': [this.cursus.dateFin],
-                    'stagiaires': [this.cursus.stagiaires],
-                    'formations': [this.cursus.formations]
+                    'dateFin': [this.cursus.dateFin]
                 });
                 this.getEventCursus();
-                this.getEventsFormations();
-                this.listFormateursSelected = [];
+
+                this.formationService.list().subscribe(data => {
+                    this.formations = data;
+                    console.log('formations = ',  this.formations);
+                    this.getEventsFormations();
+                });
             });
         });
 
@@ -122,33 +120,6 @@ export class CursusEditComponent implements OnInit {
             console.log('err = ' , err.message);
             this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
         })
-    }
-
-    editFormation(formation): void {
-        $(".pickListFactory").show();
-        $(".pickListFactory").show();
-        this.formationSelected = formation;
-
-        this.getListFormateurs(this.formationSelected.matiere.id);
-    }
-
-    getListFormateurs(matiereId: number): void{
-        this.formateurService.listAllByMatiereId(matiereId).subscribe(data => {
-            console.log('data = ' + data);
-            this.listFormateursAvailable = data.map(f=> new FormateurModule(f[0],f[1],f[2],f[3],f[4],f[5] ,null, null, null));
-            console.log('listFormateursAvailable = ', this.listFormateursAvailable);
-        })
-    }
-
-    getListMatieres(): void {
-        this.matiereService.list().subscribe(data => {
-            this.listMatieres = data;
-            console.log('listMatieres = ' + this.listMatieres);
-        })
-    }
-
-    closePickList(): void {
-        $(".pickListFactory").hide();
     }
 
     showNotification(from, align, type="success", message="SUCCES - Les modifications ont bien été sauvegardées"){

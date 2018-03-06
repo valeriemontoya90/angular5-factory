@@ -76,6 +76,7 @@ export class FormationAddComponent implements OnInit {
         console.log('this.formationAddForm.getRawValue() = ', this.formationAddForm.getRawValue());
         let matiere: any;
         let formateur: any;
+        let cursus: any;
 
         this.matiereService.getOne(this.formationAddForm.getRawValue().matiere).subscribe(data => {
             matiere = data;
@@ -83,14 +84,22 @@ export class FormationAddComponent implements OnInit {
             this.formateurService.getOne(this.searchFormationForm.getRawValue().listFormateursFormControl).subscribe(data => {
                     formateur = data;
 
-                    let formation = new FormationModule(-1, this.formationAddForm.getRawValue().dateDebut, this.formationAddForm.getRawValue().dateFin,
-                        matiere, formateur, this.cursusId);
-                    console.log("formation.toJSON() = ", formation.toJSON());
-                    this.formationService.add(formation.toJSON()).subscribe(data => {
-                        console.log('formation = ' + data);
-                        this.showNotification('top', 'right');
-                        this.router.navigateByUrl('/cursus/edit/' + this.cursusId);
+                    this.cursusService.getOne(this.cursusId).subscribe(data => {
+                        cursus = data;
 
+                        let formation = new FormationModule(-1, this.formationAddForm.getRawValue().dateDebut, this.formationAddForm.getRawValue().dateFin,
+                            matiere, formateur, cursus);
+                        console.log("formation.toJSON() = ", formation.toJSON());
+                        this.formationService.add(formation.toJSON()).subscribe(data => {
+                            console.log('formation = ' , data);
+                            this.showNotification('top', 'right');
+                            this.router.navigateByUrl('/cursus/edit/' + this.cursusId);
+
+                        });
+
+                    },err => {
+                        console.log('err = ' , err.message);
+                        this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
                     });
 
                 },err => {
