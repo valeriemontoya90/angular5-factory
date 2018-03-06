@@ -11,8 +11,10 @@
             <p></p>
             Nom : {{formateur.nom}}<br>
             Prenom : {{formateur.prenom}}<br>
-            Liste de mes compétences :
-            <span *ngFor="let t of competences">{{t.matiere.titre}} {{t.level}}</span>
+              <p *ngIf="competences!=null">
+                  Liste de mes compétences :
+                  <span *ngFor="let t of competences">{{t[2].titre}} {{t.level}}</span>
+              </p>
           </div>
         </div>
       </div>

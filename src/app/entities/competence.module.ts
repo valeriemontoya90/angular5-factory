@@ -1,8 +1,10 @@
+import {MatiereModule} from './matiere.module';
+
 export class CompetenceModule {
     constructor(
                 public id: number,
                 public level: string,
-                public matiere: number,
+                public matiere: MatiereModule,
                 public formateur: number) {
     }
 
@@ -10,6 +12,14 @@ export class CompetenceModule {
         return {
             level: this.level,
             matiere: {id: this.matiere},
+            formateur: {id: this.formateur}
+        }
+    }
+
+    toBuildJSON(): any {
+        return {
+            level: this.level,
+            matieres: {id: this.matiere},
             formateur: {id: this.formateur}
         }
     }

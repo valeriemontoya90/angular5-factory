@@ -65,11 +65,8 @@ export class FormateurAddComponent implements OnInit {
                 console.log("competence = ", competence);
                 this.competenceService.add(competence.toJSON()).subscribe(data => {
                     console.log('competence = ' + data);
-                    this.showNotification('top','right');
-                    this.router.navigateByUrl('/formateurs');
                 },err => {
                     console.log('err = ' , err.message);
-                    this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
                 });
             }
 
