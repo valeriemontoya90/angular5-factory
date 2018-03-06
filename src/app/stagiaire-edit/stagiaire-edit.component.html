@@ -1,0 +1,54 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Edition d'un stagiaire {{stagiaire.nom}} {{stagiaire.prenom}}</h4>
+            <p class="category">Retour <a [routerLink]="['/stagiaires']" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">liste des stagiaires</a>
+              <a [routerLink]="['/stagiaires/show', stagiaire.id]" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">Détail de {{stagiaire.nom}}
+                {{stagiaire.prenom}}</a>
+            </p>
+          </div>
+          <div class="card-content table-responsive">
+            <form [formGroup]="stagiaireAddForm" novalidate (ngSubmit)="onSubmit()">
+              <input type="hidden" formControlName="id">
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Nom</label>
+                  <input type="text" class="form-control" formControlName="nom" value="{{stagiaire.nom}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Prenom</label>
+                  <input type="text" class="form-control" formControlName="prenom" value="{{stagiaire.prenom}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Adresse</label>
+                  <input type="text" class="form-control" formControlName="adresse" value="{{stagiaire.adresse}}">
+                </div>
+              </div>7
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Code Postal</label>
+                  <input type="text" class="form-control" formControlName="codePostal" value="{{stagiaire.codePostal}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Email</label>
+                  <input type="email" class="form-control" formControlName="mail" value="{{stagiaire.mail}}">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-danger pull-right">Sauvegarder</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

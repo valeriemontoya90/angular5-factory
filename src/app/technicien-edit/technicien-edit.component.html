@@ -1,0 +1,54 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Edition technicien {{technicien.nom}} {{technicien.prenom}}</h4>
+            <p class="category">Retour <a [routerLink]="['/techniciens']" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">liste des techniciens</a>
+              <a [routerLink]="['/techniciens/show', technicien.id]" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">Détail de {{technicien.nom}}
+                {{technicien.prenom}}</a>
+            </p>
+          </div>
+          <div class="card-content table-responsive">
+            <form [formGroup]="technicienAddForm" novalidate (ngSubmit)="onSubmit()">
+              <input type="hidden" formControlName="id">
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Nom</label>
+                  <input type="text" class="form-control" formControlName="nom" value="{{technicien.nom}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Prenom</label>
+                  <input type="text" class="form-control" formControlName="prenom" value="{{technicien.prenom}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Adresse</label>
+                  <input type="text" class="form-control" formControlName="adresse" value="{{technicien.adresse}}">
+                </div>
+              </div>7
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Code Postal</label>
+                  <input type="text" class="form-control" formControlName="codePostal" value="{{technicien.codePostal}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Email</label>
+                  <input type="email" class="form-control" formControlName="mail" value="{{technicien.mail}}">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-danger pull-right">Sauvegarder</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

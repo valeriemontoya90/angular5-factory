@@ -1,13 +1,12 @@
-import {OrdinateurModule} from "./ordinateur.module";
+import {MaterielComponent} from '../materiel/materiel.component';
 
-
-export class StagiaireModule {
+export class TechnicienModule {
     constructor(public id: number,
                 public nom: string,
                 public prenom: string,
                 public adresse: string,
                 public codePostal: string,
                 public mail: string,
-                public ordinateur: OrdinateurModule) {
+                public materiel: Array<MaterielComponent>) {
     }
 }

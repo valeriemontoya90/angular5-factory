@@ -1,0 +1,23 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Détail du stagiaire {{stagiaire.nom}} {{stagiaire.prenom}}</h4>
+            <p class="category">Retour <a [routerLink]="['/stagiaires']" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">liste des stagiaires</a></p>
+          </div>
+          <div class="card-content table-responsive">
+            <p></p>
+            nom : {{stagiaire.nom}}<br>
+            prenom : {{stagiaire.prenom}}<br>
+            adresse : {{stagiaire.adresse}}<br>
+            codePostal : {{stagiaire.codePostal}}<br>
+            mail : {{stagiaire.mail}}<br>
+            ordinateur :<span *ngFor="let elem of ordinateur">{{elem.code}}</span><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
