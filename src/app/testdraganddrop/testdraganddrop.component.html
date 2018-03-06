@@ -1,0 +1,33 @@
+<div class="content-section implementation">
+    <br>    
+    <h3>Drag and Drop to DataTable</h3>
+    <div class="ui-grid ui-grid-pad ui-grid-responsive">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-6 ui-widget-content" style="border-right:0 none">
+                <ul style="margin:0;padding:0">
+                    <li *ngFor="let car of availableCars" class="ui-state-default ui-helper-clearfix" pDraggable="cars" (onDragStart)="dragStart($event,car)"
+                        (onDragEnd)="dragEnd($event)">
+                        <i class="fa fa-arrows fa-2x" style="float:right;margin-top:8px"></i>
+                        <div style="margin:8px 0 0 8px;float:left">{{car.titre}} - {{car.duree}} - {{car.objectif}}</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="ui-grid-col-6 ui-widget-content" pDroppable="cars" (onDrop)="drop($event)" [ngClass]="{'ui-state-highlight':draggedCar}">
+                <p-dataTable [value]="selectedCars">
+                    <p-column field="titre" header="Titre"></p-column>
+                    <p-column field="duree" header="Durée"></p-column>
+                    <p-column field="objectif" header="Objectif"></p-column>
+                </p-dataTable>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-info" (click)="myFunction(fc)">Test</button>
+
+        <div class="ui-grid-row">
+            <p-schedule [events]="events" [header]="header" defaultDate="2018-02-01" [editable]="false" #fc></p-schedule>
+        </div>
+
+
+    </div>
+</div>
+

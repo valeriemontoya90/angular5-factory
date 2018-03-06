@@ -25,8 +25,8 @@ export class VideoprojAddComponent implements OnInit {
 
     constructor(private fb: FormBuilder, private router: Router, private videoprojService: VideoprojService) {
         this.choixDispo = [
-            { label: 'Disponible', value: 'false' },
-            { label: 'Indisponible', value: 'true' }
+            { label: 'Disponible', value: 'true' },
+            { label: 'Indisponible', value: 'false' }
         ];
         this.videoprojAddForm = new FormGroup({
             id: new FormControl(),
@@ -45,7 +45,7 @@ export class VideoprojAddComponent implements OnInit {
             'id': [''],
             'code': [''],
             'cout': [''],
-            'isDisponible': ['']
+            'isDisponible': ['true']
         });
     }
 

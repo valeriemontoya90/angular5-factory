@@ -36,6 +36,7 @@ import { OrdinateurListComponent } from '../ordinateur-list/ordinateur-list.comp
 import { OrdinateurAddComponent } from '../ordinateur-add/ordinateur-add.component';
 import { OrdinateurShowComponent } from '../ordinateur-show/ordinateur-show.component';
 import { OrdinateurEditComponent } from '../ordinateur-edit/ordinateur-edit.component';
+import { TestdraganddropComponent } from '../testdraganddrop/testdraganddrop.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'matieres', pathMatch: 'full' },
@@ -67,7 +68,9 @@ const routes: Routes = [
   { path: 'matieres', component: MatiereListComponent },
   { path: 'matieres/add', component: MatiereAddComponent },
   { path: 'matieres/edit/:id', component: MatiereEditComponent, pathMatch: 'full' },
-  { path: 'matieres/show/:id', component: MatiereShowComponent }
+  { path: 'matieres/show/:id', component: MatiereShowComponent },
+  { path: 'dad', component: TestdraganddropComponent }
+  
 
 ]
 

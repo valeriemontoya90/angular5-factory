@@ -1,4 +1,4 @@
-import { CodeHighlighterModule, TabViewModule, GrowlModule, ButtonModule, ConfirmDialogModule, DropdownModule } from 'primeng/primeng';
+import { CodeHighlighterModule, TabViewModule, GrowlModule, ButtonModule, ConfirmDialogModule, DropdownModule, DragDropModule, DataTableModule, PanelModule } from 'primeng/primeng';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -52,6 +52,7 @@ import { MatiereEditComponent } from './matiere-edit/matiere-edit.component';
 import { MatiereShowComponent } from './matiere-show/matiere-show.component';
 import { MatiereAddComponent } from './matiere-add/matiere-add.component';
 import { CompetenceService } from "./services/competence.service";
+import { TestdraganddropComponent } from './testdraganddrop/testdraganddrop.component';
 
 @NgModule({
       declarations: [
@@ -102,8 +103,12 @@ import { CompetenceService } from "./services/competence.service";
             MatiereListComponent,
             MatiereEditComponent,
             MatiereShowComponent,
-            MatiereAddComponent
+            MatiereAddComponent,
+            TestdraganddropComponent
       ],
+      exports: [
+            CursusShowComponent
+      ],      
       imports: [
             BrowserModule,
             FormsModule,
@@ -122,7 +127,15 @@ import { CompetenceService } from "./services/competence.service";
             ButtonModule,
             GrowlModule,
             TabViewModule,
-            CodeHighlighterModule
+            CodeHighlighterModule,
+            DragDropModule,
+
+
+
+            PanelModule,
+            DataTableModule
+
+
       ],
       providers: [
             MatosService,
