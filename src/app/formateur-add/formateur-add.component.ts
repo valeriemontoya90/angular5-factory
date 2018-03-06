@@ -61,29 +61,17 @@ export class FormateurAddComponent implements OnInit {
             this.router.navigateByUrl('/formateurs');
 
             for (let matiereId of this.formateurAddForm.getRawValue().matieres) {
-                let competence = new CompetenceModule(-1, "AVANCEE", matiereId, dataFormateur.id);
+                let competence = new CompetenceModule(-1, "AVANCE", matiereId, dataFormateur.id);
                 console.log("competence = ", competence);
-                this.competenceService.add(competence).subscribe(data => {
+                this.competenceService.add(competence.toJSON()).subscribe(data => {
                     console.log('competence = ' + data);
                     this.showNotification('top','right');
-                    this.router.navigateByUrl('/competences');
+                    this.router.navigateByUrl('/formateurs');
                 },err => {
-
-                    /*this.competenceService.update(this.formateurAddForm.getRawValue()).subscribe(data => {
-                        console.log('competence = ' + data);
-                        this.showNotification('top','right');
-                        this.router.navigateByUrl('/competences');
-                    },err => {
-                        console.log('err = ' , err.message);
-                        this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
-                    })
-
                     console.log('err = ' , err.message);
-                    this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');*/
-                })
+                    this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
+                });
             }
-
-
 
         },err => {
             console.log('err = ' , err.message);

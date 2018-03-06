@@ -20,7 +20,7 @@ export class CompetenceService {
 
     add(competence: CompetenceModule): Observable<any> {
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-        return this.http.post('http://localhost:8080/factory/competences/formateur', competence,  {headers});
+        return this.http.post('http://localhost:8080/factory/competences', competence,  {headers});
     }
 
     update(competence: CompetenceModule): Observable<any> {
