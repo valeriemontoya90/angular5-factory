@@ -51,7 +51,7 @@ export class FormateurEditComponent implements OnInit {
     }
 
     onSubmit(): void {
-        console.log('this.salleAddForm.getRawValue() = ' + this.formateurEditForm.getRawValue());
+        console.log('this.salleAddForm.getRawValue() = ', this.formateurEditForm.getRawValue());
         this.formateurService.update(this.formateurEditForm.getRawValue()).subscribe(data => {
             console.log('formateur = ' + data);
             this.showNotification('top','right');

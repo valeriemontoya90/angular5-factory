@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {StagiaireService} from '../services/stagiaire.service';
-import {OrdinateurService} from '../services/ordinateur.service';
+import {OrdinateurService} from "../services/ordinateur.service";
 
 declare var $: any;
 @Component({
@@ -12,7 +12,8 @@ declare var $: any;
 })
 export class StagiaireAddComponent implements OnInit {
     stagiaireAddForm: FormGroup;
-    Keys: any;
+    keys: any;
+    ordinateurs: any;
 
     constructor
     (private fb: FormBuilder, private router: Router,
@@ -37,6 +38,10 @@ export class StagiaireAddComponent implements OnInit {
             'codePostal': [''],
             'mail': [''],
             'ordinateur': ['']
+        });
+        this.ordinateurService.list().subscribe(data => {
+            this.ordinateurs = data;
+            console.log('Liste des ordinateurs récupérés par le sce = ' + this.ordinateurs );
         });
     }
 

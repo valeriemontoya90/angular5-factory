@@ -29,6 +29,14 @@ import {FormateurListComponent} from "../formateur-list/formateur-list.component
 import {FormateurAddComponent} from "../formateur-add/formateur-add.component";
 import {FormateurShowComponent} from "../formateur-show/formateur-show.component";
 import {FormateurEditComponent} from "../formateur-edit/formateur-edit.component";
+import {VideoprojListComponent} from "../videoproj-list/videoproj-list.component";
+import {VideoprojAddComponent} from "../videoproj-add/videoproj-add.component";
+import {VideoprojShowComponent} from "../videoproj-show/videoproj-show.component";
+import {VideoprojEditComponent} from "../videoproj-edit/videoproj-edit.component";
+import {OrdinateurListComponent} from "../ordinateur-list/ordinateur-list.component";
+import {OrdinateurAddComponent} from "../ordinateur-add/ordinateur-add.component";
+import {OrdinateurShowComponent} from "../ordinateur-show/ordinateur-show.component";
+import {OrdinateurEditComponent} from "../ordinateur-edit/ordinateur-edit.component";
 
 
 const routes: Routes = [
@@ -56,7 +64,15 @@ const routes: Routes = [
     {path: 'formateurs', component: FormateurListComponent},
     {path: 'formateurs/add', component: FormateurAddComponent},
     {path: 'formateurs/show/:id', component: FormateurShowComponent},
-    {path: 'formateurs/edit/:id', component: FormateurEditComponent, pathMatch: 'full'}
+    {path: 'formateurs/edit/:id', component: FormateurEditComponent, pathMatch: 'full'},
+    {path: 'videoprojs', component: VideoprojListComponent},
+    {path: 'videoprojs/add', component: VideoprojAddComponent},
+    {path: 'videoprojs/show/:id', component: VideoprojShowComponent},
+    {path: 'videoprojs/edit/:id', component: VideoprojEditComponent, pathMatch: 'full'},
+    {path: 'ordinateurs', component: OrdinateurListComponent},
+    {path: 'ordinateurs/add', component: OrdinateurAddComponent},
+    {path: 'ordinateurs/show/:id', component: OrdinateurShowComponent},
+    {path: 'ordinateurs/edit/:id', component: OrdinateurEditComponent, pathMatch: 'full'}
 ]
 
 @NgModule({

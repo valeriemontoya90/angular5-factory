@@ -37,7 +37,7 @@
                   <div class="form-group">
                     <label class="control-label">Choisir un formateur</label>
                     <select class="form-control" formControlName="listFormateursFormControl" style="width: 100%;">
-                      <option *ngFor="let t of listFormateursAvailable" [value]="t.id">{{t.nom}} ({{t.prenom}})</option>
+                      <option *ngFor="let t of listFormateurs" [value]="t.id">{{t.nom}} ({{t.prenom}})</option>
                     </select>
                   </div>
                 </div>

@@ -4,6 +4,7 @@ import {MatosService} from '../matos.service';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {SalleModule} from '../matos/salle.module';
 
+declare var $: any;
 @Component({
   selector: 'app-matos-salles-edit',
   templateUrl: './matos-salles-edit.component.html',
@@ -48,6 +49,24 @@ export class MatosSallesEditComponent implements OnInit {
             this.salle = data;
             console.log('salle detail = ' + this.salle.capacite );
             this.router.navigateByUrl('/salles');
+            this.showNotification('top','right');
+        },err => {
+            console.log('err = ' , err.message);
+            this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
+        })
+    }
+
+    showNotification(from, align, type="success", message="SUCCES - Les modifications ont bien été sauvegardées"){
+        $.notify({
+            icon: "notifications",
+            message: message
+        },{
+            type: type,
+            timer: 4000,
+            placement: {
+                from: from,
+                align: align
+            }
         });
     }
 }

@@ -9,7 +9,7 @@
                     </div>
                     <br>
                     <div class="card-content table-responsive">
-                        <p-table [value]="listStagiaire">
+                        <p-table [value]="listStagiaire" [rows]="10" [paginator]="true">
                             <ng-template pTemplate="header">
                                 <tr>
                                     <th *ngFor="let col of cols" [pSortableColumn]="col.field">

@@ -47,7 +47,9 @@
                                 </div>
                                 <select class="custom-select" id="inputGroupSelect01">
                                     <option selected>Attribuer un ordinateur</option>
-                                    <option>{{ordinateur.code}}</option>
+                                    <option *ngFor="let t of ordinateurs " [value]="t.id">
+                                        {{t.id}} &nbsp;&nbsp; {{t.code}} &nbsp;&nbsp; {{t.processeur}}
+                                    </option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-danger pull-right">Ajouter</button>

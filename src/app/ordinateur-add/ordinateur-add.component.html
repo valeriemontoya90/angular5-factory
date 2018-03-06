@@ -1,0 +1,63 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header" data-background-color="red">
+                      <h4 class="title">Ajout d'un nouvel ordinateur</h4>
+                      <p class="category"></p>
+                  </div>
+                  <div class="card-content table-responsive">
+                      <form [formGroup]="ordinateurAddForm" novalidate (ngSubmit)="onSubmit()">
+                          <input type="hidden" formControlName="id">
+                          <div class="row">
+                              <div class="form-group form-black label-floating is-empty">
+                                  <label class="control-label">Code</label>
+                                  <input type="text" class="form-control" formControlName="code">
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="form-group form-black label-floating is-empty">
+                                  <label class="control-label">Cout</label>
+                                  <input type="number" class="form-control" formControlName="cout">
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="form-group form-black label-floating is-empty">
+                                  <label class="control-label">Disponibilite</label>
+                                  <input type="text" class="form-control" formControlName="isDisponible">
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="form-group form-black label-floating is-empty">
+                              <label class="control-label">Processeur</label>
+                              <input type="text" class="form-control" formControlName="processeur">
+                            </div>
+                          </div> 
+                          <div class="row">
+                            <div class="form-group form-black label-floating is-empty">
+                              <label class="control-label">RAM</label>
+                              <input type="number" class="form-control" formControlName="ram">
+                            </div>
+                          </div> 
+                          <div class="row">
+                            <div class="form-group form-black label-floating is-empty">
+                              <label class="control-label">Disque dur</label>
+                              <input type="number" class="form-control" formControlName="disqueDur">
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="form-group form-black label-floating is-empty">
+                              <label class="control-label">Date d'achat</label>
+                              <input type="date" class="form-control" formControlName="anneeAchat">
+                            </div>
+                          </div>  
+                          <div class="clearfix"></div>
+                          <button type="submit" class="btn btn-info">Ajouter</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
