@@ -4,9 +4,7 @@ import { Router } from '@angular/router';
 import { VideoprojService } from '../services/videoproj.service';
 import { SelectItem } from 'primeng/api';
 
-interface Choix {
-    name: string;
-}
+
 declare var $: any;
 @Component({
     selector: 'app-videoproj-add',
@@ -16,14 +14,11 @@ declare var $: any;
 export class VideoprojAddComponent implements OnInit {
 
     videoprojAddForm: FormGroup;
-    keys: any;
-
     choixDispo: SelectItem[];
-    selectedChoixDispo: Choix;
-
-
+    selectedChoixDispo: string;
 
     constructor(private fb: FormBuilder, private router: Router, private videoprojService: VideoprojService) {
+        this.selectedChoixDispo = "true";
         this.choixDispo = [
             { label: 'Disponible', value: 'true' },
             { label: 'Indisponible', value: 'false' }
@@ -33,9 +28,7 @@ export class VideoprojAddComponent implements OnInit {
             code: new FormControl(),
             cout: new FormControl(),
             isDisponible: new FormControl()
-        });        
-
-
+        });
     }
 
     ngOnInit() {
@@ -45,7 +38,7 @@ export class VideoprojAddComponent implements OnInit {
             'id': [''],
             'code': [''],
             'cout': [''],
-            'isDisponible': ['true']
+            'isDisponible': ['']
         });
     }
 
