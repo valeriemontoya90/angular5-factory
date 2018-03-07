@@ -3,21 +3,22 @@ import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {StagiaireService} from '../services/stagiaire.service';
 import {OrdinateurService} from "../services/ordinateur.service";
+import {StagiaireModule} from "../entities/stagiaire.module";
 
 declare var $: any;
+
 @Component({
     selector: 'app-stagiaire-add',
     templateUrl: './stagiaire-add.component.html',
     styleUrls: ['./stagiaire-add.component.scss']
 })
 export class StagiaireAddComponent implements OnInit {
+
     stagiaireAddForm: FormGroup;
-    keys: any;
     ordinateurs: any;
 
     constructor
-    (private fb: FormBuilder, private router: Router,
-     private stagiaireService: StagiaireService, private ordinateurService: OrdinateurService) {
+    (private fb: FormBuilder, private router: Router, private stagiaireService: StagiaireService, private ordinateurService: OrdinateurService) {
         this.stagiaireAddForm = new FormGroup({
             id: new FormControl(),
             nom: new FormControl(),
@@ -41,14 +42,19 @@ export class StagiaireAddComponent implements OnInit {
         });
         this.ordinateurService.list().subscribe(data => {
             this.ordinateurs = data;
-            console.log('Liste des ordinateurs récupérés par le sce = ' + this.ordinateurs );
+            console.log('Liste des ordinateurs récupérés par le sce = ' + this.ordinateurs);
         });
     }
 
     onSubmit(): void {
-        this.stagiaireService.add(this.stagiaireAddForm.getRawValue()).subscribe(data => {
+        let stagiaire = new StagiaireModule(-1, this.stagiaireAddForm.getRawValue().nom,
+            this.stagiaireAddForm.getRawValue().prenom, this.stagiaireAddForm.getRawValue().adresse,
+            this.stagiaireAddForm.getRawValue().codePostal, this.stagiaireAddForm.getRawValue().mail,
+            this.stagiaireAddForm.getRawValue().ordinateur);
+        console.log('INPUT stagiaire = ', stagiaire.toJSON());
+        this.stagiaireService.add(stagiaire.toJSON()).subscribe(data => {
             const stagiaire = data;
-            console.log('this.stagiaire = ' + stagiaire);
+            console.log('this.stagiaire = ', stagiaire);
             this.showNotification('top', 'right');
             this.router.navigateByUrl('/stagiaires');
         }, err => {

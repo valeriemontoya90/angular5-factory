@@ -45,8 +45,7 @@
                                 <div class="form-group form-black label-floating is-empty">
                                     <label class="input-group-text" for="inputGroupSelect01">Ordinateur</label>
                                 </div>
-                                <select class="custom-select" id="inputGroupSelect01">
-                                    <option selected>Attribuer un ordinateur</option>
+                                <select class="custom-select" id="inputGroupSelect01" formControlName="ordinateur">
                                     <option *ngFor="let t of ordinateurs " [value]="t.id">
                                         {{t.id}} &nbsp;&nbsp; {{t.code}} &nbsp;&nbsp; {{t.processeur}}
                                     </option>
