@@ -1,0 +1,84 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Edition de l'ordinateur {{ordinateur.id}}</h4>
+            <p class="category">Retour <a [routerLink]="['/ordinateurs']" style="text-decoration: underline; color:rgba(255, 255, 255, 0.62);">liste des ordinateurs</a>
+
+            </p>
+          </div>
+
+          <div class="card-content table-responsive">
+
+            <form [formGroup]="ordinateurAddForm" novalidate (ngSubmit)="onSubmit()">
+              <input type="hidden" formControlName="id">
+              
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Code</label>
+                  <input type="text" class="form-control" formControlName="code" value="{{ordinateur.code}}">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Cout</label>
+                  <input type="number" class="form-control" formControlName="cout" value="{{ordinateur.cout}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Disponibilite</label>
+                  <input type="text" class="form-control" formControlName="isDisponible" value="{{ordinateur.isDisponible}}">
+                </div>
+              </div>
+
+              
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Processeur</label>
+                  <input type="text" class="form-control" formControlName="processeur" value="{{ordinateur.processeur}}">
+                </div>
+                </div>
+                <div class="row">
+                <div class="form-group">
+                  <label class="control-label">ram</label>
+                  <input type="text" class="form-control" formControlName="ram" value="{{ordinateur.ram}}">
+                </div>
+                </div>
+                
+                
+                <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Disque dur</label>
+                  <input type="text" class="form-control" formControlName="disqueDur" value="{{ordinateur.disqueDur}}">
+                </div>
+                </div>
+                <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Date d'achat</label>
+                  <input type="text" class="form-control" formControlName="anneeAchat" value="{{ordinateur.anneeAchat}}">
+                </div>
+                </div>
+                
+                <div class="row">
+                <div class="form-group">
+                  <label class="control-label">Stagiaire</label>
+                  <input type="text" class="form-control" formControlName="stagiaire" value="{{ordinateur.stagiaire}}">
+                </div>
+                </div>    
+                
+
+
+
+                <div class="clearfix"></div>
+                <button type="submit" class="btn btn-danger pull-right">Sauvegarder</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

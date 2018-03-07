@@ -1,0 +1,60 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Ordinateur</h4>
+            <p class="category">Liste des ordinateurs</p>
+          </div>
+          <br>
+          <div class="card-content table-responsive">
+            <p-table [value]="listMatos"  [rows]="10" [paginator]="true">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th *ngFor="let col of cols" [pSortableColumn]="col.field">
+                    {{col.header}}
+                    <p-sortIcon [field]="col.field"></p-sortIcon>
+                  </th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-item>
+                <tr>
+                  <td>{{item.id}}</td>
+                  <td>{{item.code}}</td>
+                  <td>{{item.cout}}</td>
+                  <td>{{item.isDisponible}}</td>
+                  <td>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <a [routerLink]="['/ordinateurs/edit', item.id]">
+                          <i class="material-icons">edit</i>
+                        </a>
+                      </div>
+                      <div class="col-md-4">
+                        <a (click)="onDeleteOne(item.id)">
+                          <i class="material-icons">delete</i>
+                        </a>
+                      </div>
+                      <div class="col-md-4">
+                        <a [routerLink]="['/ordinateurs/show', item.id]">
+                          <i class="material-icons">assignment</i>
+                        </a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+            <br>
+            <br>
+            <a [routerLink]="['/ordinateurs/add']">
+              <button type="submit" class="btn btn-danger pull-right">Ajouter</button>
+            </a>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

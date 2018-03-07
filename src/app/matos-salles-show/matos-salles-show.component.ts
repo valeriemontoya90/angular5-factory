@@ -8,7 +8,6 @@ import {MatosService} from "../matos.service";
   styleUrls: ['./matos-salles-show.component.scss']
 })
 export class MatosSallesShowComponent implements OnInit {
-
     salle = {};
 
     constructor(private route: ActivatedRoute, private matosService: MatosService) {}
