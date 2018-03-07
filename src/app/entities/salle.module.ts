@@ -13,6 +13,7 @@ export class SalleModule extends MaterielModule {
 
     toJSON(): any {
         return {
+            id: this.id,
             code: this.code,
             cout: this.cout,
             isDisponible: this.isDisponible,

@@ -9,4 +9,15 @@ export class VideoprojModule extends MaterielModule {
                 public technicien: number) {
         super(id, code, cout, isDisponible, type, technicien);
     }
+
+    toJSON(): any {
+        return {
+            id: this.id,
+            code: this.code,
+            cout: this.cout,
+            isDisponible: this.isDisponible,
+            type: this.type,
+            technicien: {id: this.technicien}
+        }
+    }
 }

@@ -7,6 +7,7 @@ import {MatosService} from "../matos.service";
 import {OrdinateurService} from "../services/ordinateur.service";
 import {VideoprojService} from "../services/videoproj.service";
 import {SalleModule} from "../entities/salle.module";
+import {OrdinateurModule} from "../entities/ordinateur.module";
 
 declare var $: any;
 @Component({
@@ -71,15 +72,24 @@ export class TechnicienAddComponent implements OnInit {
                             let salleToUpdate = new SalleModule(salleFind.id, salleFind.code, salleFind.cout,
                                 salleFind.isDisponible, salleFind.type, salleFind.capacite, technicien.id);
 
+                            console.log("salleToUpdate = ", salleToUpdate);
+
                             this.matosService.update(salleToUpdate.toJSON()).subscribe(data => {
                                 console.log("data this.matosService.update = ", data);
                             });
                         });
-                    }
-                    if (matosFind.type == "ORDINATEUR") {
+                    } else if (matosFind.type == "ORDINATEUR") {
+                        this.ordinateurService.getOne(matosId).subscribe(data => {
+                            let ordinateurFind = data;
+                            let ordiToUpdate = new OrdinateurModule(ordinateurFind.id, ordinateurFind.code, ordinateurFind.cout,
+                                ordinateurFind.isDisponible, ordinateurFind.type, technicien.id, ordinateurFind.processeur,
+                                ordinateurFind.ram, ordinateurFind.hdd, ordinateurFind.dateAchat);
 
-                    }
-                    if (matosFind.type == "VIDEOPROJECTEUR") {
+                            this.ordinateurService.update(ordiToUpdate.toJSON()).subscribe(data => {
+                                console.log("data this.ordinateurService.update = ", data);
+                            });
+                        });
+                    } else {
 
                     }
                 });
