@@ -12,9 +12,6 @@ export class TechnicienService {
     list(): Observable<any> {
         return this.http.get('http://localhost:8080/factory/techniciens');
     }
-    ListAllByMaterielId(id: number): Observable<any> {
-        return this.http.get('http://localhost:8080/factory/formateurs/materiels' + id);
-    }
 
     getOne(id: number): Observable<any> {
         return this.http.get('http://localhost:8080/factory/techniciens/' + id);

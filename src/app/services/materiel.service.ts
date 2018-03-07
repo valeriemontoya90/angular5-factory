@@ -9,5 +9,12 @@ export class MaterielService {
     list(): Observable<any> {
         return this.http.get('http://localhost:8080/factory/materiels');
     }
-    ListAllByTechnicienId
+
+    listAllByTechnicienId(id: number): Observable<any> {
+        return this.http.get('http://localhost:8080/factory/materiels/technicien/' + id);
+    }
+
+    getOne(id: number): Observable<any> {
+        return this.http.get('http://localhost:8080/factory/materiels/' + id);
+    }
 }

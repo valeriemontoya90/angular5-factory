@@ -10,7 +10,7 @@ import {MaterielService} from '../services/materiel.service';
 })
 export class TechnicienShowComponent implements OnInit {
     technicien = {};
-    materiel = [];
+    materiel = null;
 
 
     constructor
@@ -22,13 +22,12 @@ export class TechnicienShowComponent implements OnInit {
             const id = params['id'];
             this.technicienService.getOne(id).subscribe(data => {
                 this.technicien = data;
-                console.log('technicien detail = ' + this.technicien);
-                this.materielservice.ListAllByTechnicienId(id).subscribe(data1 => {
-                    this.materiel = data1;
+                console.log('technicien detail = ', this.technicien);
+                this.materielservice.listAllByTechnicienId(id).subscribe(data => {
+                    this.materiel = data;
                     console.log('materiel = ' + this.materiel);
                 });
             });
         });
     }
-
 }

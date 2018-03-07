@@ -31,8 +31,8 @@ export class OrdinateurService {
         return this.http.delete('http://localhost:8080/factory/ordinateurs/' + id);
     }
 
-    ListAllByStagiaireId(id: number): Observable<any> {
-        return this.http.get('http://localhost:8080/factory/ordinateurs/' + id);
+    listAllByStagiaireId(id: number): Observable<any> {
+        return this.http.get('http://localhost:8080/factory/ordinateurs/stagiaire/' + id);
     }
 }
 

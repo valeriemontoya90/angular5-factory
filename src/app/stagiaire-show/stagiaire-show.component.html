@@ -14,7 +14,9 @@
             adresse : {{stagiaire.adresse}}<br>
             codePostal : {{stagiaire.codePostal}}<br>
             mail : {{stagiaire.mail}}<br>
+            <p *ngIf="ordinateur != null">
             ordinateur :<span *ngFor="let elem of ordinateur">{{elem.code}}</span><br>
+            </p>
           </div>
         </div>
       </div>

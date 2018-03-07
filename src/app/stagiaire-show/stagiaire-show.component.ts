@@ -10,7 +10,7 @@ import {OrdinateurService} from '../services/ordinateur.service';
 })
 export class StagiaireShowComponent implements OnInit {
     stagiaire = {};
-    ordinateur = [];
+    ordinateur = null;
 
     constructor(private route: ActivatedRoute, private stagiaireService: StagiaireService, private ordinateurService: OrdinateurService) {
     }
@@ -21,8 +21,8 @@ export class StagiaireShowComponent implements OnInit {
             this.stagiaireService.getOne(id).subscribe(data => {
                 this.stagiaire = data;
                 console.log('stagiaire detail = ' + this.stagiaire);
-                this.ordinateurService.ListAllByStagiaireId(id).subscribe(data1 => {
-                    this.ordinateur = data1;
+                this.ordinateurService.listAllByStagiaireId(id).subscribe(data => {
+                    this.ordinateur = data;
                     console.log('ordinateur = ' + this.ordinateur);
                 });
             });

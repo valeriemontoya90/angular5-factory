@@ -14,7 +14,8 @@
             adresse : {{technicien.adresse}}<br>
             codePostal : {{technicien.codePostal}}<br>
             mail : {{technicien.mail}}<br>
-            materiel : {{technicien.materiel}} <br>
+            <p *ngIf="materiel != null">
+              materiel : <br><ul><li *ngFor="let t of materiel">{{t[1]}} - Disponibilité <strong>{{t[3]}}</strong></li></ul>
           </div>
         </div>
       </div>
