@@ -1,9 +1,9 @@
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { OrdinateurModule } from '../ordinateur-show/ordinateur.module';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { OrdinateurService } from '../services/ordinateur.service';
+import {OrdinateurModule} from '../entities/ordinateur.module';
 
 declare var $: any;
 @Component({
@@ -13,7 +13,7 @@ declare var $: any;
 })
 export class OrdinateurEditComponent implements OnInit {
 
-  ordinateur = new OrdinateurModule(-1,"",0, "true","",0,0,null,"");
+  ordinateur = new OrdinateurModule(-1,"",0, true,"",null,"0",null,-1, null);
   ordinateurAddForm: FormGroup;
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private ordinateurService: OrdinateurService) {
     this.ordinateurAddForm = new FormGroup({
@@ -25,10 +25,8 @@ export class OrdinateurEditComponent implements OnInit {
         ram: new FormControl(),
         disqueDur: new FormControl(),
         anneeAchat: new FormControl(),
-        stagiaire: new FormControl()
     });  
 }
-
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -46,7 +44,6 @@ export class OrdinateurEditComponent implements OnInit {
                 'ram': [this.ordinateur.ram],
                 'disqueDur': [this.ordinateur.disqueDur],
                 'anneeAchat': [this.ordinateur.anneeAchat],
-                'stagiaire': [this.ordinateur.stagiaire]
             });
         });
     });

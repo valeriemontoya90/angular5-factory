@@ -23,8 +23,7 @@ export class OrdinateurAddComponent implements OnInit {
             processeur: new FormControl(),
             ram: new FormControl(),
             disqueDur: new FormControl(),
-            anneeAchat: new FormControl(),
-            stagiaire: new FormControl()
+            anneeAchat: new FormControl()
         });
     }
 
@@ -34,11 +33,10 @@ export class OrdinateurAddComponent implements OnInit {
             'code': [''],
             'cout': [''],
             'isDisponible': [''],
-            'processeur': [1],
+            'processeur': [''],
             'ram': [''],
             'disqueDur': [''],
-            'anneeAchat': [''],
-            'stagiaire': ['']
+            'anneeAchat': ['']
         });
     }
 

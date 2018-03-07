@@ -9,8 +9,8 @@ export class OrdinateurModule extends MaterielModule {
                 public technicien: number,
                 public processeur: string,
                 public ram: number,
-                public hdd: number,
-                public dateAchat: Date) {
+                public disqueDur: number,
+                public anneeAchat: Date) {
         super(id, code, cout, isDisponible, type, technicien);
     }
 
@@ -24,8 +24,8 @@ export class OrdinateurModule extends MaterielModule {
             technicien: {id: this.technicien},
             processeur: this.processeur,
             ram: this.ram,
-            hdd: this.hdd,
-            dateAchat: this.dateAchat
+            disqueDur: this.disqueDur,
+            anneeAchat: this.anneeAchat
         }
     }
 }
