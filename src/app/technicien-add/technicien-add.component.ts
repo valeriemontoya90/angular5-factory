@@ -19,11 +19,9 @@ declare var $: any;
 export class TechnicienAddComponent implements OnInit {
 
     technicienAddForm: FormGroup;
-    listMateriels= {};
+    listMateriels= [];
 
-    constructor
-    (private fb: FormBuilder, private router: Router,
-     private technicienService: TechnicienService, private materielService: MaterielService,
+    constructor(private fb: FormBuilder, private router: Router, private technicienService: TechnicienService, private materielService: MaterielService,
         private matosService: MatosService, private ordinateurService: OrdinateurService, private videoprojService: VideoprojService) {
         this.technicienAddForm = new FormGroup({
             id: new FormControl(),
