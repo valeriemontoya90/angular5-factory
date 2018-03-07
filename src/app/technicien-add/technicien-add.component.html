@@ -45,7 +45,7 @@
                                     <select multiple class="form-control" formControlName="materiels"
                                             style="width: 100%;">
                                         <option *ngFor="let t of listMateriels" [value]="t.id">
-                                            {{t.code}} &nbsp;&nbsp; - &nbsp;&nbsp; (Technicien responsable actuel : <strong>{{t.technicien.nom}} {{t.technicien.prenom}}</strong>)
+                                            {{t.code}} <span *ngIf="t.technicien!=null"> &nbsp;&nbsp; - &nbsp;&nbsp;(Technicien responsable actuel : <strong>{{t.technicien.nom}} {{t.technicien.prenom}}</strong>)</span>
                                         </option>
                                     </select>
                                 </div>
