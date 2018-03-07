@@ -9,9 +9,9 @@ import {MaterielService} from '../services/materiel.service';
     styleUrls: ['./technicien-show.component.scss']
 })
 export class TechnicienShowComponent implements OnInit {
+
     technicien = {};
     materiel = null;
-
 
     constructor
     (private route: ActivatedRoute, private technicienService: TechnicienService, private materielservice: MaterielService) {
@@ -25,7 +25,7 @@ export class TechnicienShowComponent implements OnInit {
                 console.log('technicien detail = ', this.technicien);
                 this.materielservice.listAllByTechnicienId(id).subscribe(data => {
                     this.materiel = data;
-                    console.log('materiel = ' + this.materiel);
+                    console.log('materiel = ' , this.materiel);
                 });
             });
         });

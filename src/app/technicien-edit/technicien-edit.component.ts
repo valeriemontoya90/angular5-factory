@@ -56,7 +56,7 @@ export class TechnicienEditComponent implements OnInit {
         this.technicienService.update(this.technicienAddForm.getRawValue()).subscribe(data => {
             console.log('formateur = ' + data);
             this.showNotification('top', 'right');
-            this.router.navigateByUrl('/formateurs');
+            this.router.navigateByUrl('/techniciens');
         }, err => {
             console.log('err = ', err.message);
             this.showNotification('top', 'right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
