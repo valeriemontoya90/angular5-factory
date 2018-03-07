@@ -8,6 +8,7 @@ import {OrdinateurService} from "../services/ordinateur.service";
 import {VideoprojService} from "../services/videoproj.service";
 import {SalleModule} from "../entities/salle.module";
 import {OrdinateurModule} from "../entities/ordinateur.module";
+import {VideoprojModule} from "../entities/videoproj.module";
 
 declare var $: any;
 @Component({
@@ -90,26 +91,17 @@ export class TechnicienAddComponent implements OnInit {
                             });
                         });
                     } else {
+                        this.videoprojService.getOne(matosId).subscribe(data => {
+                            let videoProjFind = data;
+                            let videoProjFindToUpdate = new VideoprojModule(videoProjFind.id, videoProjFind.code, videoProjFind.cout,
+                                videoProjFind.isDisponible, videoProjFind.type, technicien.id);
 
+                            this.videoprojService.update(videoProjFindToUpdate.toJSON()).subscribe(data => {
+                                console.log("data this.videoprojService.update = ", data);
+                            });
+                        });
                     }
                 });
-
-
-
-
-                /*let competence = new CompetenceModule(-1, "AVANCE", matiereId, dataFormateur.id);
-                console.log("competence = ", competence);
-                this.competenceService.add(competence.toJSON()).subscribe(data => {
-                    console.log('competence = ' + data);
-                    this.showNotification('top','right');
-                    this.router.navigateByUrl('/formateurs');
-                },err => {
-                    console.log('err = ' , err.message);
-                    this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
-                });*/
-
-
-
             }
 
         }, err => {
