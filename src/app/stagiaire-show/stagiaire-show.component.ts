@@ -9,8 +9,9 @@ import {OrdinateurService} from '../services/ordinateur.service';
     styleUrls: ['./stagiaire-show.component.scss']
 })
 export class StagiaireShowComponent implements OnInit {
+
     stagiaire = {};
-    ordinateur = null;
+    ordinateur = {};
 
     constructor(private route: ActivatedRoute, private stagiaireService: StagiaireService, private ordinateurService: OrdinateurService) {
     }
@@ -20,11 +21,13 @@ export class StagiaireShowComponent implements OnInit {
             const id = params['id'];
             this.stagiaireService.getOne(id).subscribe(data => {
                 this.stagiaire = data;
-                console.log('stagiaire detail = ' + this.stagiaire);
-                this.ordinateurService.listAllByStagiaireId(id).subscribe(data => {
+                console.log('stagiaire detail = ', this.stagiaire);
+
+                /*this.ordinateurService.getOne(this.stagiaire.ordinateur).subscribe(data => {
                     this.ordinateur = data;
-                    console.log('ordinateur = ' + this.ordinateur);
-                });
+                    console.log('ordinateur = ', this.ordinateur);
+                });*/
+
             });
         });
     }
