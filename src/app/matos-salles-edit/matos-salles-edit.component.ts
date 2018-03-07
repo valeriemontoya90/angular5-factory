@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatosService} from '../matos.service';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {SalleModule} from '../matos/salle.module';
+import {SalleModule} from '../entities/salle.module';
 
 declare var $: any;
 @Component({
@@ -12,7 +12,7 @@ declare var $: any;
 })
 export class MatosSallesEditComponent implements OnInit {
 
-    salle = new SalleModule(-1, '', 0, '', 0);
+    salle = new SalleModule(-1, '', 0, true, "SALLE", 0,null);
     salleAddForm: FormGroup;
 
     constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private matosService: MatosService) {
