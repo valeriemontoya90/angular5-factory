@@ -3,6 +3,7 @@ import { OrdinateurService } from './../services/ordinateur.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import {SelectItem} from 'primeng/api';
 
 declare var $: any;
 @Component({
@@ -11,10 +12,19 @@ declare var $: any;
     styleUrls: ['./ordinateur-add.component.scss']
 })
 export class OrdinateurAddComponent implements OnInit {
+
     ordinateurAddForm: FormGroup;
-    keys: any;
+    choixProcesseur: SelectItem[];
+    selectedChoixProcesseur: string;
 
     constructor(private fb: FormBuilder, private router: Router, private ordinateurService: OrdinateurService) {
+        this.selectedChoixProcesseur = "AMD";
+        this.choixProcesseur = [
+            { label: 'AMD', value: 'AMD' },
+            { label: 'INTEL_I3', value: 'INTEL_I3' },
+            { label: 'INTEL_I5', value: 'INTEL_I5' },
+            { label: 'INTEL_I7', value: 'INTEL_I7' }
+        ];
         this.ordinateurAddForm = new FormGroup({
             id: new FormControl(),
             code: new FormControl(),
