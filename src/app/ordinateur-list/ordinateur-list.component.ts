@@ -25,11 +25,9 @@ export class OrdinateurListComponent implements OnInit {
   }
 
 refreshList(){
-
     this.ordinateurService.list().subscribe(data => {
         this.listMatos = data;
     });
-
 };
 
   onDeleteOne(id: number): void {

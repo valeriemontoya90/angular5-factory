@@ -10,6 +10,7 @@ declare var $: any;
     styleUrls: ['./technicien-list.component.scss']
 })
 export class TechnicienListComponent implements OnInit {
+
     cols: any;
     listTechnicien: any;
 
@@ -36,12 +37,19 @@ export class TechnicienListComponent implements OnInit {
             console.log('this.technicien = ' + data);
             this.showNotification('top', 'right');
             this.router.navigateByUrl('/techniciens');
+            this.refreshList();
         }, err => {
             console.log('err = ', err.message);
             this.showNotification
             ('top', 'right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
         })
     }
+
+    refreshList() {
+        this.technicienService.list().subscribe(data => {
+            this.listTechnicien = data;
+        });
+    };
 
     private showNotification(from, align, type = 'success',
                              message = 'SUCCES - La suppresion a bien fonctionné') {

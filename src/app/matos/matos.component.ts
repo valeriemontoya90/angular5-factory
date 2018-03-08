@@ -31,7 +31,6 @@ export class MatosComponent implements OnInit {
         this.matosService.list().subscribe(data => {
             this.listMatos = data;
         });
-
     };
 
     onDeleteOne(id: number): void {
