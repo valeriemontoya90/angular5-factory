@@ -19,7 +19,7 @@ export class OrdinateurListComponent implements OnInit {
         {field: 'id', header: 'ID'},
         {field: 'code', header: 'code'},
         {field: 'cout', header: 'cout'},
-        //{field: 'isDisponible', header: 'isDisponible'},
+        {field: 'isDisponible', header: 'isDisponible'},
         {field: '', header: 'Actions'}
     ];    
   }

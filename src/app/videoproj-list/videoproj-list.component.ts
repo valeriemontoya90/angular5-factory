@@ -25,7 +25,6 @@ export class VideoprojListComponent implements OnInit {
       { field: 'id', header: 'ID' },
       { field: 'code', header: 'code' },
       { field: 'cout', header: 'cout' },
-      { field: 'isDisponible', header: 'isDisponible' },
       { field: '', header: 'Actions' }
     ];
   }
