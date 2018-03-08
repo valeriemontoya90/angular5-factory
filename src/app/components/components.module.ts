@@ -38,6 +38,10 @@ import {OrdinateurAddComponent} from "../ordinateur-add/ordinateur-add.component
 import {OrdinateurShowComponent} from "../ordinateur-show/ordinateur-show.component";
 import {OrdinateurEditComponent} from "../ordinateur-edit/ordinateur-edit.component";
 import {FormationAddComponent} from '../formation-add/formation-add.component';
+import {MatiereAddComponent} from '../matiere-add/matiere-add.component';
+import {MatiereShowComponent} from '../matiere-show/matiere-show.component';
+import {MatiereListComponent} from '../matiere-list/matiere-list.component';
+import {MatiereEditComponent} from '../matiere-edit/matiere-edit.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'cursus', pathMatch: 'full'},
@@ -73,7 +77,11 @@ const routes: Routes = [
     {path: 'ordinateurs', component: OrdinateurListComponent},
     {path: 'ordinateurs/add', component: OrdinateurAddComponent},
     {path: 'ordinateurs/show/:id', component: OrdinateurShowComponent},
-    {path: 'ordinateurs/edit/:id', component: OrdinateurEditComponent, pathMatch: 'full'}
+    {path: 'ordinateurs/edit/:id', component: OrdinateurEditComponent, pathMatch: 'full'},
+    {path: 'matieres', component: MatiereListComponent},
+    {path: 'matieres/add', component: MatiereAddComponent},
+    {path: 'matieres/show/:id', component: MatiereShowComponent},
+    {path: 'matieres/edit/:id', component: MatiereEditComponent, pathMatch: 'full'},
 ]
 
 @NgModule({

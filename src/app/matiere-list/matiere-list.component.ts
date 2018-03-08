@@ -35,11 +35,18 @@ export class MatiereListComponent implements OnInit {
             console.log('gestionnaire = ' + data);
             this.showNotification('top','right');
             this.router.navigateByUrl('/matieres');
+            this.refreshList();
         },err => {
             console.log('err = ' , err.message);
             this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
         })
     }
+
+    refreshList() {
+        this.matiereService.list().subscribe(data => {
+            this.liste = data;
+        });
+    };
 
     showNotification(from, align, type="success", message="SUCCES - La suppresion a bien fonctionné"){
         $.notify({
