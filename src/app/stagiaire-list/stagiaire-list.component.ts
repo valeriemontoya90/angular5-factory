@@ -35,12 +35,20 @@ export class StagiaireListComponent implements OnInit {
             console.log('this.stagiaire = ' + data);
             this.showNotification('top', 'right');
             this.router.navigateByUrl('/stagiaires');
+            this.refreshList();
         }, err => {
             console.log('err = ', err.message);
             this.showNotification
             ('top', 'right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
         })
     }
+
+    refreshList() {
+        this.stagiaireService.list().subscribe(data => {
+            this.listStagiaire = data;
+        });
+    };
+
 
     private showNotification(from, align, type = 'success',
                              message = 'SUCCES - La suppresion a bien fonctionné') {
