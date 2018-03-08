@@ -23,7 +23,7 @@
                                     <td>{{item.id}}</td>
                                     <td>{{item.nom}}</td>
                                     <td>{{item.prenom}}</td>
-                                    <td>{{item.adresse}}</td>
+                                    <td><span *ngIf="item.ordinateur != null">{{item.ordinateur.code}}</span></td>
                                     <td>
                                         <div class="row">
                                             <div class="col-md-4">

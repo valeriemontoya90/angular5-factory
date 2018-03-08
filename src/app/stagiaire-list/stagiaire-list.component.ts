@@ -25,7 +25,7 @@ export class StagiaireListComponent implements OnInit {
             {field: 'id', header: 'Id'},
             {field: 'nom', header: 'Nom'},
             {field: 'prenom', header: 'Prenom'},
-            {field: 'adresse', header: 'Adresse'},
+            {field: 'ordinateur', header: 'Ordinateur'},
             {field: '', header: 'Actions'}
         ];
     }
