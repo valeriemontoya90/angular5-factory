@@ -24,7 +24,7 @@ export class CursusEditComponent implements OnInit {
     colsFormation: any[];
     headerScheduler: any;
     eventsScheduler = [{'title' : '', 'start' : '', 'end' : ''}];
-    formations: {};
+    formations: any[];
 
     constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private cursusService: CursusService,
                 private formateurService: FormateurService, private matiereService: MatiereService, private formationService: FormationService) {
@@ -42,7 +42,7 @@ export class CursusEditComponent implements OnInit {
             console.log('ID == ' +  id);
             this.cursusService.getOne(id).subscribe(data => {
                 this.cursus = data;
-                console.log('salle detail = ' + this.cursus);
+                console.log('cursus  = ' , this.cursus);
                 this.cursusAddForm = this.fb.group({
                     'id': [this.cursus.id],
                     'titre': [this.cursus.titre],
@@ -88,10 +88,12 @@ export class CursusEditComponent implements OnInit {
     }
 
     encodeFormations(formation: FormationModule): EventCalendar {
+        let fixedDateFin = new Date(formation.dateFin);
+        fixedDateFin.setDate(fixedDateFin.getDate()+1)
         return {
             title: formation.matiere.titre,
             start: formation.dateDebut.toString(),
-            end: formation.dateFin.toString(),
+            end: fixedDateFin.toString(),
             backgroundColor: '#FF5722',
             borderColor: '#FF5722'
         };
@@ -104,9 +106,11 @@ export class CursusEditComponent implements OnInit {
     }
 
     getEventsFormations(): void {
-        if (this.cursus.formations!=null) {
-            for(let formation of this.cursus.formations) {
-                this.eventsScheduler.push(this.encodeFormations(formation));
+        if (this.formations!=null) {
+            for(let formation of this.formations) {
+                if(formation.dateDebut != null && formation.dateFin){
+                    this.eventsScheduler.push(this.encodeFormations(formation));
+                }
             }
 
         }
