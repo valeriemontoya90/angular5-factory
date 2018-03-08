@@ -15,8 +15,8 @@ export class FormationModule {
         return {
             dateDebut: this.dateDebut,
             dateFin: this.dateFin,
-            matiere: this.matiere,
-            formateur: this.formateur,
+            matiere: {id : this.matiere},
+            formateur: {id: this.formateur},
             cursus: this.cursus
         }
     }

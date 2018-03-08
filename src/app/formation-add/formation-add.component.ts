@@ -30,9 +30,7 @@ export class FormationAddComponent implements OnInit {
             matiere: new FormControl(),
             dateDebut: new FormControl(),
             dateFin: new FormControl(),
-            matieres: new FormControl()
-        });
-        this.searchFormationForm = new FormGroup({
+            matieres: new FormControl(),
             listFormateursFormControl: new FormControl()
         });
     }
@@ -46,12 +44,10 @@ export class FormationAddComponent implements OnInit {
               'matiere': [''],
               'dateDebut': [''],
               'dateFin': [''],
-              'matieres': ['']
+              'matieres': [''],
+              'listFormateursFormControl': [null]
           });
           this.getListMatieres();
-          this.searchFormationForm = this.fb.group({
-              'listFormateursFormControl': ['']
-          });
       });
   }
 
@@ -78,17 +74,13 @@ export class FormationAddComponent implements OnInit {
         let formateur: any;
         let cursus: any;
 
-        this.matiereService.getOne(this.formationAddForm.getRawValue().matiere).subscribe(data => {
-            matiere = data;
 
-            this.formateurService.getOne(this.searchFormationForm.getRawValue().listFormateursFormControl).subscribe(data => {
-                    formateur = data;
 
                     this.cursusService.getOne(this.cursusId).subscribe(data => {
                         cursus = data;
 
                         let formation = new FormationModule(-1, this.formationAddForm.getRawValue().dateDebut, this.formationAddForm.getRawValue().dateFin,
-                            matiere, formateur, cursus);
+                            this.formationAddForm.getRawValue().matiere, this.formationAddForm.getRawValue().listFormateursFormControl, cursus);
                         console.log("formation.toJSON() = ", formation.toJSON());
                         this.formationService.add(formation.toJSON()).subscribe(data => {
                             console.log('formation = ' , data);
@@ -102,15 +94,6 @@ export class FormationAddComponent implements OnInit {
                         this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
                     });
 
-                },err => {
-            console.log('err = ' , err.message);
-            this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
-            });
-
-        },err => {
-            console.log('err = ' , err.message);
-            this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
-        })
     }
 
     showNotification(from, align, type="success", message="SUCCES - L'ajout a bien été effectué"){

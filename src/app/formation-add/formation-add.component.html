@@ -32,7 +32,6 @@
               <button type="button" (click)="onSearchListFormateurs()" class="btn btn-warning pull-right">Rechercher des formateurs</button>
               <div class="clearfix"></div>
               <br>
-              <form id="formSearchAFormateur" *ngIf="matiereSelectedId!=null" [formGroup]="searchFormationForm" novalidate (ngSubmit)="onSubmit()">
                 <div class="row">
                   <div class="form-group">
                     <label class="control-label">Choisir un formateur</label>
@@ -44,7 +43,6 @@
               <br>
               <button type="submit" class="btn btn-warning pull-right">Sauvegarder</button>
               <div class="clearfix"></div>
-              </form>
             </form>
           </div>
         </div>
