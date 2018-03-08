@@ -41,7 +41,7 @@ export class StagiaireAddComponent implements OnInit {
             'ordinateur': ['']
         });
         this.ordinateurService.list().subscribe(data => {
-            this.ordinateurs = data;
+            this.ordinateurs = data.filter(o => o.isDisponible);
             console.log('Liste des ordinateurs récupérés par le sce = ' + this.ordinateurs);
         });
     }
