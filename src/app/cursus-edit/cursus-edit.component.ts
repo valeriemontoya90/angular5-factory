@@ -76,10 +76,12 @@ export class CursusEditComponent implements OnInit {
     }
 
     encodeCursus(cursus: CursusModule): EventCalendar {
+        let fixedDateFin = new Date(cursus.dateFin);
+        fixedDateFin.setDate(fixedDateFin.getDate()+1)
         return {
             title: cursus.titre,
             start: cursus.dateDebut.toString(),
-            end: cursus.dateFin.toString(),
+            end: fixedDateFin.toString(),
             backgroundColor: '#80D8FF',
             borderColor: '#80D8FF'
         };
@@ -115,7 +117,7 @@ export class CursusEditComponent implements OnInit {
         this.cursusService.update(this.cursusAddForm.getRawValue()).subscribe(data => {
             console.log('cursus = ' + data);
             this.showNotification('top','right');
-            this.router.navigateByUrl('/gestionnaires');
+            this.router.navigateByUrl('/cursus');
         },err => {
             console.log('err = ' , err.message);
             this.showNotification('top','right', 'danger', 'ECHEC - La connexion avec le serveur a échoué');
