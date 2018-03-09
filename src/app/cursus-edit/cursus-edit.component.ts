@@ -64,8 +64,7 @@ export class CursusEditComponent implements OnInit {
             {field: 'matiere', header: 'Matière'},
             {field: 'dateDebut', header: 'Date de début'},
             {field: 'dateFin', header: 'Date de fin'},
-            {field: 'formateur', header: 'Formateur'},
-            {field: '', header: 'Actions'}
+            {field: 'formateur', header: 'Formateur'}
         ];
 
         this.headerScheduler = {

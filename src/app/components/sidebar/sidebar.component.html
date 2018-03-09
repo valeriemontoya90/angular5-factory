@@ -1,5 +1,5 @@
 <div class="logo">
-    <a href="https://www.creative-tim.com" class="simple-text">
+    <a [routerLink]="['/cursus']" class="simple-text">
         <div class="logo-img">
             <img src="/assets/img/angular2-logo-red.png"/>
         </div>
@@ -69,8 +69,7 @@
                         <li class="level-1"><a [routerLink]="['/videoprojs']">Vidéos projecteurs</a></li>
                     </ul>
                 </li>
-                <li><a [routerLink]="['/cursus']"><i class="material-icons right">school</i>
-                    <p>Cursus</p></a>
+                <li><a [routerLink]="['/cursus']"><i class="material-icons right">school</i><p>Cursus</p></a>
                 </li>
                 <li><a [routerLink]="['/matieres']"><i class="material-icons right">content_paste</i><p>Matieres</p></a>
                 </li>
